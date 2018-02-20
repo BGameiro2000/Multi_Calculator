@@ -38,6 +38,8 @@ def root(input1, input2):
 def logarithm(input1, input2):
   if input2 == 1 or input2 == c and c == 1:
     print("Math Error!")
+  elif abs(input1) != input1 or input1 == c and abs(c) != c:
+    print("Math Error!")
   else:
     return log(input1, input2)
 
