@@ -251,3 +251,6 @@ if input_curso in Expressions_2:
     else:
         nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("O que intruduziu não é válido.")
         escolha_disc_anual_1_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Economia C\n(2) Geografia C\n(3) Sociologia\n(4) Química\n:")
+"""
+Adicionar lista das disciplinas para verificação
+"""
