@@ -135,7 +135,7 @@ if input_curso in Expressions_1:
         escolha_disc_anual_1 = "Biologia"
         escolha_disc_anual_2_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Outra\n(2) Geologia\n(3) Física\n(4) Química\n:")
         if  escolha_disc_anual_2_input in Expressions_1:
-            escolha_disc_anual_2 = input(":")
+            escolha_disc_anual_2 = input("Segunda disciplina de opção anual:")
         elif escolha_disc_anual_2_input in Expressions_2:
             escolha_disc_anual_2 = "Geologia"
         elif escolha_disc_anual_2_input in Expressions_3:
@@ -151,7 +151,7 @@ if input_curso in Expressions_1:
         if  escolha_disc_anual_2_input in Expressions_1:
             escolha_disc_anual_2 = "Biologia"
         elif escolha_disc_anual_2_input in Expressions_2:
-            escolha_disc_anual_2 = input(":")
+            escolha_disc_anual_2 = input("Segunda disciplina de opção anual:")
         elif escolha_disc_anual_2_input in Expressions_3:
             escolha_disc_anual_2 = "Física"
         elif escolha_disc_anual_2_input in Expressions_4:
@@ -167,7 +167,7 @@ if input_curso in Expressions_1:
         elif escolha_disc_anual_2_input in Expressions_2:
             escolha_disc_anual_2 = "Geologia"
         elif escolha_disc_anual_2_input in Expressions_3:
-            escolha_disc_anual_2 = input(":")
+            escolha_disc_anual_2 = input("Segunda disciplina de opção anual:")
         elif escolha_disc_anual_2_input in Expressions_4:
             escolha_disc_anual_2 = "Química"
         else:
@@ -183,7 +183,7 @@ if input_curso in Expressions_1:
         elif escolha_disc_anual_2_input in Expressions_3:
             escolha_disc_anual_2 = "Física"
         elif escolha_disc_anual_2_input in Expressions_4:
-            escolha_disc_anual_2 = input(":")
+            escolha_disc_anual_2 = input("Segunda disciplina de opção anual:")
         else:
             nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("O que intruduziu não é válido.")
             escolha_disc_anual_2_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Biologia\n(2) Geologia\n(3) Física\n(4) Outra\n:")
@@ -196,7 +196,7 @@ if input_curso in Expressions_2:
         escolha_disc_anual_1 = "Economia C"
         escolha_disc_anual_2_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Outra\n(2) Geografia C\n(3) Sociologia\n(4) Química\n:")
         if  escolha_disc_anual_2_input in Expressions_1:
-            escolha_disc_anual_2 = input(":")
+            escolha_disc_anual_2 = input("Segunda disciplina de opção anual:")
         elif escolha_disc_anual_2_input in Expressions_2:
             escolha_disc_anual_2 = "Geografia C"
         elif escolha_disc_anual_2_input in Expressions_3:
@@ -212,7 +212,7 @@ if input_curso in Expressions_2:
         if  escolha_disc_anual_2_input in Expressions_1:
             escolha_disc_anual_2 = "Economia C"
         elif escolha_disc_anual_2_input in Expressions_2:
-            escolha_disc_anual_2 = input(":")
+            escolha_disc_anual_2 = input("Segunda disciplina de opção anual:")
         elif escolha_disc_anual_2_input in Expressions_3:
             escolha_disc_anual_2 = "Sociologia"
         elif escolha_disc_anual_2_input in Expressions_4:
@@ -228,7 +228,7 @@ if input_curso in Expressions_2:
         elif escolha_disc_anual_2_input in Expressions_2:
             escolha_disc_anual_2 = "Geografia C"
         elif escolha_disc_anual_2_input in Expressions_3:
-            escolha_disc_anual_2 = input(":")
+            escolha_disc_anual_2 = input("Segunda disciplina de opção anual:")
         elif escolha_disc_anual_2_input in Expressions_4:
             escolha_disc_anual_2 = "Química"
         else:
@@ -244,7 +244,7 @@ if input_curso in Expressions_2:
         elif escolha_disc_anual_2_input in Expressions_3:
             escolha_disc_anual_2 = "Sociologia"
         elif escolha_disc_anual_2_input in Expressions_4:
-            escolha_disc_anual_2 = input(":")
+            Segunda disciplina de opção anual"Segunda disciplina de opção anual:")
         else:
             nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("O que intruduziu não é válido.")
             escolha_disc_anual_2_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Economia C\n(2) Geografia C\n(3) Sociologia\n(4) Outra\n:")
