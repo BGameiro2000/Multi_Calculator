@@ -24,7 +24,10 @@ def multiplication(input1, input2):
   return input1 * input2
 
 def division(input1, input2):
-  return input1 / input2
+  if input2 == 0 or input2 == c and c == 0:
+    print("Math Error!")
+  else:
+    return input1 / input2
 
 def exponentiation(input1, input2):
   return input1 ** input2
@@ -32,8 +35,11 @@ def exponentiation(input1, input2):
 def root(input1, input2):
   return exponentiation(input1, division(1, input2))
 
-def logarithm(input1, input2)
-  return log(input1, input2)
+def logarithm(input1, input2):
+  if input2 == 1 or input2 == c and c == 1:
+    print("Math Error!")
+  else:
+    return log(input1, input2)
 
 def result(function, input1, input2):
   return function(input1, input2)
