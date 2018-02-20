@@ -36,10 +36,10 @@ while True:
     if geometric_figure in Expressions_1:
       Number_of_sides = input("How many sides?/n:")
       Number_of_sides_float = float(Number_of_sides)
-      if Number_of_sides_float > 2 and Number_of_sides_float != 4
+      if Number_of_sides_float > 2 and Number_of_sides_float != 4:
         Measurement_Sides = float(input("Measurement of the sides:"))
         print(Number_of_sides_float * Measurement_Sides)
-      elif Number_of_sides_float is 4:
+      elif Number_of_sides_float == 4:
         Calculation_option_Square = input("What do you want to use as measurement?/n(1) Side/n(2) Diagonal/nOption:")
         if Calculation_option in Expressions_1:
           Square_Side = input("Measurement:")
