@@ -37,13 +37,13 @@ def result(function, input1, input2):
 """
 Defining operations inputs.
 """
-add_expressions = ("add", "+", "plus")
-subtract_expressions = ("subtract", "-", "minus")
-multiply_expressions = ("multiply", "x", "X", "times", '*')
-divide_expressions = ("divide", "/", "÷")
-exp_expressions = ("exp", "^", "to the power of")
-root_expressions = ("root")
-ans_expressions = ("continue", "ans", "previous result", "")
+add_expressions = ["add", "+", "plus"]
+subtract_expressions = ["subtract", "-", "minus"]
+multiply_expressions = ["multiply", "x", "X", "times", '*']
+divide_expressions = ["divide", "/", "÷"]
+exp_expressions = ["exp", "^", "to the power of"]
+root_expressions = ["root"]
+ans_expressions = ["continue", "ans", "previous result", ""]
 """
 Continuous calculation.
 """
