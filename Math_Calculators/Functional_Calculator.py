@@ -10,7 +10,7 @@ More in
 """
 Menu.
 """
-print("Options:\n\n\nEnter 'add', '+' or 'plus' to add two numbers.\n\nEnter 'subtract', '-' or 'minus' to subtract two numbers.\n\nEnter 'multiply', 'x' or 'times' to multiply two numbers.\n\nEnter 'divide', '/' or '÷' to divide two numbers.\n\nEnter 'exp' or '^' to elevate the first number to the power of the second number.\n\nEnter 'root' to find the nth root of the first number, being n equal to the second number.\n\nEnter 'quit' to stop the program.\n\nEnter 'ans' or press enter to use the previous result in a operation.\n\n\nNote:\n\n- The inputs above may not work at all times depending on what is the needed input.\n- Notice that, when using the root function, the program will use exponent's properties in order to achieve the result [x^y=x^(1/y)] and as the program can´t use an infinte number of decimals, it will provide an approximation.\n")
+print("Options:\n\n\nEnter 'add', '+' or 'plus' to add two numbers.\n\nEnter 'subtract', '-' or 'minus' to subtract two numbers.\n\nEnter 'multiply', 'x' or 'times' to multiply two numbers.\n\nEnter 'divide', '/' or '÷' to divide two numbers.\n\nEnter 'exp' or '^' to elevate the first number to the power of the second number.\n\nEnter 'root' to find the nth root of the first number, being n equal to the second number.\n\nEnter 'log' to find the logarithm of the first number, being the base the second number.\n\nEnter 'quit' to stop the program.\n\nEnter 'ans' or press enter to use the previous result in a operation.\n\n\nNote:\n\n- The constants π and e are supported.\n- The inputs above may not work at all times depending on what is the needed input.\n- Notice that, when using the root function, the program will use exponent's properties in order to achieve the result [x^y=x^(1/y)] and as the program can´t use an infinte number of decimals, it will provide an approximation.\n")
 """
 Functions supported.
 """
@@ -32,17 +32,22 @@ def exponentiation(input1, input2):
 def root(input1, input2):
   return exponentiation(input1, division(1, input2))
 
+def logarithm(input1, input2)
+  return log(input1, input2)
+
 def result(function, input1, input2):
   return function(input1, input2)
 """
 Defining operations inputs.
 """
+from math import pi, log, e
 add_expressions = ["add", "+", "plus"]
 subtract_expressions = ["subtract", "-", "minus"]
 multiply_expressions = ["multiply", "x", "X", "times", '*']
 divide_expressions = ["divide", "/", "÷"]
 exp_expressions = ["exp", "^", "to the power of"]
 root_expressions = ["root"]
+logarithm_expressions = ["log", "ln", "logarithm"]
 ans_expressions = ["continue", "ans", "previous result", ""]
 """
 Continuous calculation.
@@ -98,6 +103,11 @@ while True:
   #nth root
   elif user_input_operation in root_expressions:
     c = result(root, user_input_num1, user_input_num2)
+    print(c)
+    print("\nContinue?\n")
+  #logarithm
+  elif user_input_operation in logarithm_expressions:
+    c = result(logarithm, user_input_num1, user_input_num2)
     print(c)
     print("\nContinue?\n")
   #Unknown input
