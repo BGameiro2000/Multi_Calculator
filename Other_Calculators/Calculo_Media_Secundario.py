@@ -244,7 +244,7 @@ if input_curso in Expressions_2:
         elif escolha_disc_anual_2_input in Expressions_3:
             escolha_disc_anual_2 = "Sociologia"
         elif escolha_disc_anual_2_input in Expressions_4:
-            Segunda disciplina de opção anual"Segunda disciplina de opção anual:")
+            escolha_disc_anual_2 = input("Segunda disciplina de opção anual:")
         else:
             nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("O que intruduziu não é válido.")
             escolha_disc_anual_2_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Economia C\n(2) Geografia C\n(3) Sociologia\n(4) Outra\n:")
