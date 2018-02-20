@@ -40,6 +40,8 @@ def logarithm(input1, input2):
     print("Math Error!")
   elif abs(input1) != input1 or input1 == c and abs(c) != c:
     print("Math Error!")
+  elif input1 == 0 or input1 == c and c == 0:
+    print("Math Error!")
   else:
     return log(input1, input2)
 
