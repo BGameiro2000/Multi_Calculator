@@ -102,4 +102,4 @@ while True:
     print("\nContinue?\n")
   #Unknown input
   else:
-    print("Unknown input")
+    print("\nUnknown input")
