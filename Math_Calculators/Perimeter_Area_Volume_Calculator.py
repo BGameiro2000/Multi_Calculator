@@ -15,14 +15,14 @@ print("Options:\n\n\nEnter what you want to calculate (perimeter, area or volume
 Defining groups of inputs.
 """
 from math import pi as pie
-Perimeter_expressions = ("perimeter", "Perimeter", "p", "P")
-Area_expressions = ("area", "Area", "a", "A")
-Volume_expressions = ("volume", "Volume", "v", "V")
-Expressions_1 = ("1", "(1)")
-Expressions_2 = ("2", "(2)")
-Expressions_3 = ("3", "(3)")
-Expressions_4 = ("4", "(4)")
-Expressions_5 = ("5", "(5)")
+Perimeter_expressions = ["perimeter", "Perimeter", "p", "P"]
+Area_expressions = ["area", "Area", "a", "A"]
+Volume_expressions = ["volume", "Volume", "v", "V"]
+Expressions_1 = ["1", "(1)"]
+Expressions_2 = ["2", "(2)"]
+Expressions_3 = ["3", "(3)"]
+Expressions_4 = ["4", "(4)"]
+Expressions_5 = ["5", "(5)"]
 """
 Calculation.
 """

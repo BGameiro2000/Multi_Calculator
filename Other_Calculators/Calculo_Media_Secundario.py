@@ -14,11 +14,11 @@ nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia = print
 """
 Definir grupos
 """
-Sim_expressions = ("Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM")
-Nao_expressions = ("No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "nao")
-Expressions_1 = ("1", "(1)")
-Expressions_2 = ("2", "(2)")
-Expressions_3 = ("3", "(3)")
+Sim_expressions = ["Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM"]
+Nao_expressions = ["No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "nao"]
+Expressions_1 = ["1", "(1)"]
+Expressions_2 = ["2", "(2)"]
+Expressions_3 = ["3", "(3)"]
 """
 Menu
 """
