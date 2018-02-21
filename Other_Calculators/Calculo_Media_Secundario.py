@@ -56,7 +56,13 @@ while True:
 Disciplinas:
 """
 nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("\n\nEscolha das disciplinas:\n")
+"""
+Definir lingua estrangeira
+"""
 escolha_disc_lingua_estrangeira = input("Língua Estrangeira\n:")
+"""
+Definir disciplinas do 10 e 11º ano
+"""
 if input_curso in Expressions_1:
     escolha_disc_bianual_1_input = input("Escolha a sua disciplina bianual (10º e 11º Ano)\n(1) Biologia e Geologia\n(2) Física e Química A\n(3) Geometria Descritiva A\n:")
     if escolha_disc_bianual_1_input in Expressions_1:
@@ -129,6 +135,9 @@ elif input_curso in Expressions_2:
         escolha_disc_bianual_1_input = input("Escolha a sua disciplina bianual (10º e 11º Ano)\n(1) Economia A\n(2) História A\n(3) Geografia A\n:")
 else:
     nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("Erro desconhecido.")
+"""
+Definir disciplinas do 12º ano
+"""
 if input_curso in Expressions_1:
     escolha_disc_anual_1_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Biologia\n(2) Geologia\n(3) Física\n(4) Química\n:")
     if escolha_disc_anual_1_input in Expressions_1:
@@ -251,6 +260,15 @@ if input_curso in Expressions_2:
     else:
         nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("O que intruduziu não é válido.")
         escolha_disc_anual_1_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Economia C\n(2) Geografia C\n(3) Sociologia\n(4) Química\n:")
+
 """
-Adicionar lista das disciplinas para verificação
+Definir lista de disciplinas
 """
+Disciplinas_10 = ["Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2]
+Disciplinas_11 = ["Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2]
+Disciplinas_12 = ["Matemática A", "Português", escolha_disc_anual_1, escolha_disc_anual_2]
+Disciplinas_todas = Disciplinas_10 + Disciplinas_11 + Disciplinas_12
+"""
+Usar essas listas
+"""
+nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_todas)
