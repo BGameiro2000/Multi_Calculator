@@ -273,20 +273,18 @@ if input_curso in Expressions_2:
 Alterar listas
 """
 nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("Disciplinas:\n\n10º ano:\n")
-while i in len(Disciplinas_10)
-    i=0
+i=0
+while i in len(Disciplinas_10):
     Disciplinas_10_ano = Disciplinas_10(i) + " (10º ano)"
-    nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_10_ano +)
+    nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_10_ano)
     i += 1
 nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("\n\n11º ano:\n")
-while i in len(Disciplinas_11)
-    i=0
+while i in len(Disciplinas_11):
     Disciplinas_11_ano = Disciplinas_11(i) + " (11º ano)"
     nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_11_ano)
     i += 1
 nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("\n\n12º ano:\n")
-while i in len(Disciplinas_12)
-    i=0
+while i in len(Disciplinas_12):
     Disciplinas_12_ano = Disciplinas_12(i) + " (12º ano)"
     nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_12_ano)
     i += 1
