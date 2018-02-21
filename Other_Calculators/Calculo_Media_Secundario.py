@@ -12,14 +12,23 @@ Importar
 from sys import exit as tchau
 nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia = print
 """
-Definir grupos
+Definir grupos e variáveis
 """
+escolha_disc_lingua_estrangeira = "Língua Estrangeira no 10º e 11º ano."
+escolha_disc_bianual_1 = "Primeira disciplina de opção no 10º e 11º ano."
+escolha_disc_bianual_2 = "Segunda disciplina de opção no 10º e 11º ano."
+escolha_disc_anual_1 = "Primeira disciplina de opção no 12º ano."
+escolha_disc_anual_2 = "Segunda disciplina de opção no 12º ano."
 Sim_expressions = ["Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM"]
 Nao_expressions = ["No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "nao"]
 Expressions_1 = ["1", "(1)", "1)"]
 Expressions_2 = ["2", "(2)", "2)"]
 Expressions_3 = ["3", "(3)", "3)"]
 Expressions_4 = ["4", "(4)", "4)"]
+Disciplinas_10 = ["Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2]
+Disciplinas_11 = ["Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2]
+Disciplinas_12 = ["Matemática A", "Português", escolha_disc_anual_1, escolha_disc_anual_2]
+Disciplinas_todas = Disciplinas_10 + Disciplinas_11 + Disciplinas_12
 """
 Menu
 """
@@ -260,15 +269,25 @@ if input_curso in Expressions_2:
     else:
         nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("O que intruduziu não é válido.")
         escolha_disc_anual_1_input = input("Escolha a sua disciplina anual (12º Ano)\n(1) Economia C\n(2) Geografia C\n(3) Sociologia\n(4) Química\n:")
-
 """
-Definir lista de disciplinas
+Alterar listas
 """
-Disciplinas_10 = ["Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2]
-Disciplinas_11 = ["Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2]
-Disciplinas_12 = ["Matemática A", "Português", escolha_disc_anual_1, escolha_disc_anual_2]
-Disciplinas_todas = Disciplinas_10 + Disciplinas_11 + Disciplinas_12
-"""
-Usar essas listas
-"""
-nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_todas)
+nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("Disciplinas:\n\n10º ano:\n")
+while i in len(Disciplinas_10)
+    i=0
+    Disciplinas_10_ano = Disciplinas_10(i) + " (10º ano)"
+    nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_10_ano +)
+    i += 1
+nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("\n\n11º ano:\n")
+while i in len(Disciplinas_11)
+    i=0
+    Disciplinas_11_ano = Disciplinas_11(i) + " (11º ano)"
+    nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_11_ano)
+    i += 1
+nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("\n\n12º ano:\n")
+while i in len(Disciplinas_12)
+    i=0
+    Disciplinas_12_ano = Disciplinas_12(i) + " (12º ano)"
+    nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia(Disciplinas_12_ano)
+    i += 1
+nao_tenho_impressora_mas_se_tivesse_era_isto_que_fazia("\n")
