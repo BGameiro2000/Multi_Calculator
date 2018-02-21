@@ -25,9 +25,9 @@ Expressions_1 = ["1", "(1)", "1)"]
 Expressions_2 = ["2", "(2)", "2)"]
 Expressions_3 = ["3", "(3)", "3)"]
 Expressions_4 = ["4", "(4)", "4)"]
-Disciplinas_10 = ("Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2)
-Disciplinas_11 = ("Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2)
-Disciplinas_12 = ("Matemática A", "Português", escolha_disc_anual_1, escolha_disc_anual_2)
+Disciplinas_10 = ["Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2]
+Disciplinas_11 = ["Matemática A", "Português", "Filosofia", escolha_disc_lingua_estrangeira, escolha_disc_bianual_1, escolha_disc_bianual_2]
+Disciplinas_12 = ["Matemática A", "Português", escolha_disc_anual_1, escolha_disc_anual_2]
 Disciplinas_todas = Disciplinas_10 + Disciplinas_11 + Disciplinas_12
 """
 Menu
