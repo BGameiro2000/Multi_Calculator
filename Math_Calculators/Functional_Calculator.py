@@ -28,6 +28,13 @@ def division(input1, input2):
     print("Math Error!")
   else:
     return input1 / input2
+"""
+def division(input1, input2):
+  try:
+    return input1 / input2
+  except:
+    print("Math Error!")
+"""
 
 def exponentiation(input1, input2):
   return input1 ** input2
@@ -44,6 +51,13 @@ def logarithm(input1, input2):
     print("Math Error!")
   else:
     return log(input1, input2)
+"""
+def logarithm(input1, input2):
+  try:
+    return log(input1, input2)
+  except:
+    print("Math Error!")
+"""
 
 def result(function, input1, input2):
   return function(input1, input2)
