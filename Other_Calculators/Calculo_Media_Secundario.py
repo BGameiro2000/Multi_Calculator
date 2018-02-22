@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Calculadora da média do secundário para alunos do ensino oficial em Portugal.
 Mais opções serão disponibilizadas.
