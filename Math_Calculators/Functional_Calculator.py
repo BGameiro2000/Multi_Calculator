@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Calculator in Python 3.
 6 supported math functions.
