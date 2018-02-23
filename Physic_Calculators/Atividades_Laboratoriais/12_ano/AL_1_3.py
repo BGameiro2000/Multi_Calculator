@@ -1,3 +1,7 @@
+from sys import exit as end
+Sim_expressions = ["Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM"]
+Nao_expressions = ["No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "nao"]
+
 while True:
 	while True:
 #Input da massa do carrinho e conversão para Kg.
@@ -17,9 +21,7 @@ while True:
 		except:
 			print("O que inseriu não é válido.")
 	Picket_fence_m = Picket_fence * 0.01
-
 #Input do intervalo de tempo que a célula fotovoltaica 1 esteve interrompida (antes da colisão).
-
 	while True:
 		Δt_i = input("Insira o primeiro intervalo de tempo (s):")
 		try:
@@ -52,28 +54,32 @@ while True:
 	Δt_i_str = str(Δt_i)
 	Δt_f_str = str(Δt_f)
 #Menu de confirmação dos inputs.
-	print("\n\nSão estes os valores que pretende usar?\n" + "\nMassa (Kg):" + massa_Kg_str + "\nComprimento da faixa escura (m):" + Picket_fence_m_str + "\n1º intervalo de tempo (s):" + Δt_i_str + "\n2º intervalo de tempo (s):" + Δt_f_str)
-	user_decision_1 = input("\n(sim/não):")
+	while True:
+		print("\n\nSão estes os valores que pretende usar?\n" + "\nMassa (Kg):" + massa_Kg_str + "\nComprimento da faixa escura (m):" + Picket_fence_m_str + "\n1º intervalo de tempo (s):" + Δt_i_str + "\n2º intervalo de tempo (s):" + Δt_f_str)
+		user_decision_1 = input("\n(sim/não):")
 #Resultados.
-	if user_decision_1 == "sim":
-		v_i_str = str(v_i)
-		v_f_str = str(v_f)
-		p_i_str = str(p_i)
-		p_f_str = str(p_f)
-		E_c_i_str = str(E_c_i)
-		E_c_f_str = str(E_c_f)
-		Coef_restituicao_str = str(Coef_restituicao)
-		print("\nResultados:\n\nVelocidade inicial (v/m):" + v_i_str + "\nVelocidade final (v/m):" + v_f_str + "\nMomento Linear inicial (kg.m/s):" + p_i_str + "\nMomento Linear final (kg.m/s):" + p_f_str + "\nEnergia cinética inicial (J):" + E_c_i_str + "\nEnergia cinética final (J):" + E_c_f_str + "\nCoeficiente de restituição:" + Coef_restituicao_str)
-		user_decision_2 = input("\n\nDeseja fazer mais um ensaio?\n(sim/não):")
-		if user_decision_2 == "sim":
-			continue
-		elif user_decision_2 == "não":
+		if user_decision_1 in Sim_expressions:
+			v_i_str = str(v_i)
+			v_f_str = str(v_f)
+			p_i_str = str(p_i)
+			p_f_str = str(p_f)
+			E_c_i_str = str(E_c_i)
+			E_c_f_str = str(E_c_f)
+			Coef_restituicao_str = str(Coef_restituicao)
+			print("\nResultados:\n\nVelocidade inicial (v/m):" + v_i_str + "\nVelocidade final (v/m):" + v_f_str + "\nMomento Linear inicial (kg.m/s):" + p_i_str + "\nMomento Linear final (kg.m/s):" + p_f_str + "\nEnergia cinética inicial (J):" + E_c_i_str + "\nEnergia cinética final (J):" + E_c_f_str + "\nCoeficiente de restituição:" + Coef_restituicao_str)
+			while True:
+				user_decision_2 = input("\n\nDeseja fazer mais um ensaio?\n(sim/não):")
+				if user_decision_2 in Sim_expressions:
+					print("\n")
+					break
+				elif user_decision_2 in Nao_expressions:
+					end("\n\n\nA fechar programa...")
+				else:
+					print("O que introduziu não é válido.")
+			break
+#Substituição dos inputs.
+		elif user_decision_1 in Nao_expressions:
+			print("\n")
 			break
 		else:
-			print("O que introduziu não é válido.")
-#Substituição dos inputs.
-	elif user_decision_1 == "não":
-		print("\n")
-		continue
-	else:
-		print("O que intoduziu não é válido.")
+			print("O que intoduziu não é válido.")
