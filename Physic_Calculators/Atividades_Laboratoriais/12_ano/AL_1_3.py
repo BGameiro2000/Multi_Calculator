@@ -1,3 +1,6 @@
+"""
+Programa para realizar os calculos da atividade laboratorial 1.3 de Física do 12º ano relativa à colisão de um carrinho numa calha de baixo atrito com uma mola.
+"""
 from sys import exit as end
 Sim_expressions = ["Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM"]
 Nao_expressions = ["No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "nao"]
