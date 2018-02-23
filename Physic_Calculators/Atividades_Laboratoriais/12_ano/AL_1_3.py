@@ -4,7 +4,8 @@ Programa para realizar os calculos da atividade laboratorial 1.3 de Física do 1
 from sys import exit as end
 Sim_expressions = ["Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM"]
 Nao_expressions = ["No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "nao"]
-
+#Welcome
+print("Bem vindo à cálculadora para a A.L. 1.3 (parte 1) de Física de 12º ano.\n\nNesta atividade vamos estudar a colisão entre um carro numa calha de baico atrito com uma mola na ponta desta.\nSerá utilizada uma célula fotovoltaica para calcular a velocidade co carro antes e depois da colisão.\nPara efetuar este cálculo deve se dividir a largura de umma banda que interrompa o feixe da célula fotovoltaica pelo intervalo de tempo que este for interrompido.\nDeve-se considerar que a velocidade se mantém constante durante o intervalo de tempo em que o feixe está interrompido, visto este ser tão reduzido.")
 while True:
 	while True:
 #Input da massa do carrinho e conversão para Kg.
