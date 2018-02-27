@@ -91,4 +91,4 @@ while True:
 			print("\n")
 			break
 		else:
-			print("O que intoduziu não é válido.")
+			print("O que introduziu não é válido.")
