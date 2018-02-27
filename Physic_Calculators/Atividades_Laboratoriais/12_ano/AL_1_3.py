@@ -3,7 +3,7 @@ Programa para realizar os calculos da atividade laboratorial 1.3 de Física do 1
 """
 from sys import exit as end
 Sim_expressions = ["Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM"]
-Nao_expressions = ["No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "nao"]
+Nao_expressions = ["No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "NAO"]
 #Welcome
 print("Bem vindo à cálculadora para a A.L. 1.3 (parte 1) de Física de 12º ano.\n\nNesta atividade vamos estudar a colisão entre um carro numa calha de baixo atrito com uma mola na extremidade desta.\nSerá utilizada uma célula fotovoltaica para calcular a velocidade do carro antes e depois da colisão.\nPara efetuar este cálculo deve se dividir a largura de uma banda que interrompa o feixe da célula fotovoltaica pelo intervalo de tempo que este for interrompido.\nDeve considerar-se que a velocidade se mantém constante durante o intervalo de tempo em que o feixe está interrompido, visto este ser tão reduzido.")
 while True:
