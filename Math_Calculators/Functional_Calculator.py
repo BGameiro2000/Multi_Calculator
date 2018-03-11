@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """
-Calculator in Python 3.
-6 supported math functions.
-Allows to use previous result.
+This code is under Apache License 2.0
+Written by B_Gameiro (Bernardo Bernardino Gameiro)
 More in 
   SoloLearn: https://www.sololearn.com/Profile/8198571
   GitHub: https://github.com/BGameiro76
   Repl.it: https://repl.it/@B_Gameiro
+
+Calculator in Python 3.
+6 supported math functions.
+Allows to use previous result.
 """
 """
 Menu.
