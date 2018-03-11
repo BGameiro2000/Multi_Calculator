@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """
-Programa para realizar os calculos da atividade laboratorial 1.3 de Física do 12º ano relativa à colisão de um carrinho numa calha de baixo atrito com uma mola.
+This code is under Apache License 2.0
+Written by B_Gameiro (Bernardo Bernardino Gameiro) e Fran
 More in 
   SoloLearn: https://www.sololearn.com/Profile/8198571
   GitHub: https://github.com/BGameiro76
   Repl.it: https://repl.it/@B_Gameiro
+
+Programa para realizar os calculos da atividade laboratorial 1.3 de Física do 12º ano relativa à colisão de um carrinho numa calha de baixo atrito com uma mola.
 """
 from sys import exit as end
 Sim_expressions = ["Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM"]
