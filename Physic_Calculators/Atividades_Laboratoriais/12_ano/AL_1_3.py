@@ -78,7 +78,7 @@ while True:
 			E_c_i_str = str(E_c_i)
 			E_c_f_str = str(E_c_f)
 			Coef_restituicao_str = str(Coef_restituicao)
-			print("\nResultados:\n\nVelocidade inicial (v/m):" + v_i_str + "\nVelocidade final (v/m):" + v_f_str + "\nMomento Linear inicial (kg.m/s):" + p_i_str + "\nMomento Linear final (kg.m/s):" + p_f_str + "\nEnergia cinética inicial (J):" + E_c_i_str + "\nEnergia cinética final (J):" + E_c_f_str + "\nCoeficiente de restituição:" + Coef_restituicao_str)
+			print("\nResultados:\n\nVelocidade inicial (m/s):" + v_i_str + "\nVelocidade final (m/s):" + v_f_str + "\nMomento Linear inicial (kg.m/s):" + p_i_str + "\nMomento Linear final (kg.m/s):" + p_f_str + "\nEnergia cinética inicial (J):" + E_c_i_str + "\nEnergia cinética final (J):" + E_c_f_str + "\nCoeficiente de restituição:" + Coef_restituicao_str)
 			while True:
 				user_decision_2 = input("\n\nDeseja fazer mais um ensaio?\n(sim/não):")
 				if user_decision_2 in Sim_expressions:
