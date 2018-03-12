@@ -13,7 +13,7 @@ from sys import exit as end
 Sim_expressions = ["Yes", "Y", "y", "yes", "Sim", "sim", "S", "s", "YES", "SIM"]
 Nao_expressions = ["No", "no", "N", "n", "NO", "Não", "não", "NÃO", "Nao", "nao", "nao"]
 #Welcome
-run_program = input("\n\n\n\n\nBem Vindo às atividades laboratoriais de Física do secundário!\nEste programa destina-se a auxiliar-te nas atividades experimentais de 10º, 11º e 12º ano do secundário.\n\nEste programa contem informação importante relativa com as mesmas.\nNomeadamente considerações, aproximações, cálculos, esquemas e objetivos das mesmas.\n\nApenas tens de inserir a informação necessária sempre que vires um dos seguntes sinais: \"𠂭 \" ou \"=\"\n\n\nVamos começar?\n𠂭 ")
+run_program = input("\n\n\n\n\nBem Vindo às atividades laboratoriais de Física do secundário!\nEste programa destina-se a auxiliar-te nas atividades experimentais de 10º, 11º e 12º ano do secundário.\n\nEste programa contem informação importante relativa com as mesmas.\nNomeadamente considerações, aproximações, cálculos, esquemas e objetivos das mesmas.\n\nApenas tens de inserir a informação necessária sempre que vires um dos seguntes sinais: \"𠂭 \" ou \"=\" ou \"☢ \" ou \"⋙ \" ou \"⫸ \"\n\n\nVamos começar?\n𠂭 ")
 if run_program in Sim_expressions:
     print("\nÓtimo!\nVamos começar.\n")
 elif run_program in Nao_expressions:
