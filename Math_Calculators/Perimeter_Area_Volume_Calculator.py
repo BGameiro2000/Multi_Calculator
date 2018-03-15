@@ -13,7 +13,7 @@ Supports perimeters, areas and volumes.
 """
 Menu.
 """
-print("Options:\n\n\nEnter what you want to calculate (perimeter, area or volume) and the the geometric figure/solid you want.\n\n\nNote:\n\n- The geometric figures supported are .\n- The solids supported are .")
+print("Options:\nEnter what you want to calculate (perimeter, area or volume) and the the geometric figure/solid you want.\n\nNote:\n\n- The geometric figures supported are .\n- The solids supported are .")
 """
 Defining groups of inputs.
 """
@@ -32,10 +32,10 @@ Calculation.
 while True:
   print(" \n ")
 #User inputs.
-  user_input_operation = input("Enter an operation : ")
+  user_input_operation = input("Enter an operation: ")
 #Calculation
   if user_input_operation in Perimeter_expressions:
-    geometric_figure = input("Choose a geometric figure.\n(1) Regular geometric figures (equal sides)\n(2) Rectangle\n(3) Triangle\n(4) Circle\n(5) Geometric figure:")
+    geometric_figure = input("\nChoose a geometric figure.\n\n(1) Regular geometric figures (equal sides)\n(2) Rectangle\n(3) Triangle\n(4) Circle\n(5) Geometric figure\n\n:")
     if geometric_figure in Expressions_1:
       Number_of_sides = input("How many sides?\n:")
       Number_of_sides_float = float(Number_of_sides)
@@ -64,11 +64,16 @@ while True:
       Triangle_Side3 = float(input("Measurement of side 3:"))
       print(Triangle_Side1 + Triangle_Side2 + Triangle_Side3)
     elif geometric_figure in Expressions_4:
-      Use_Pi = input("Use Pi or define it?\n(1) Use Pi\n(2) Use custom Pi\n:")
+      Use_Pi = input("\n\nUse Pi or define it?\n\n(1) Use Pi\n(2) Use custom Pi\n\n:")
       if Use_Pi in Expressions_1:
         pi = pie
       elif Use_Pi in Expressions_2:
-        pi = float(input("Custom Pi:"))
+      	while True:
+        	pi = float(input("\nCustom Pi:"))
+        	if pi == 3 or pi == 3.1or 3.15 <= pi <= 3.14:
+        		break
+        	else:
+        		print("Thats definitely not pi.")
       else:
         print("Unknown input")
       Calculation_option_Circle = input("What do you want to use as measurement?\n(1) Radius\n(2) Diameter\nOption:")
