@@ -13,12 +13,13 @@ Supports perimeters, areas and volumes.
 #==============================================================================================================================================================================================================
 #Menu
 #==============================================================================================================================================================================================================
-print("Options:\nEnter what you want to calculate (perimeter, area or volume) and the the geometric figure/solid you want.\n\nNote:\n\n- The geometric figures supported are .\n- The solids supported are .")
+print("\n\n\n\n\n\n\n\nOptions:\nEnter what you want to calculate (perimeter, area or volume) and the the geometric figure/solid you want.\n\n\nNote:\n\n- The geometric figures supported are .\n- The solids supported are .\n")
 
 #==============================================================================================================================================================================================================
-#Defining groups of inputs.
+#Defining groups of inputs, functions and imports.
 #==============================================================================================================================================================================================================
 from math import pi as pie
+
 Perimeter_expressions = ["perimeter", "Perimeter", "p", "P"]
 Area_expressions = ["area", "Area", "a", "A"]
 Volume_expressions = ["volume", "Volume", "v", "V"]
@@ -27,53 +28,79 @@ Expressions_2 = ["2", "(2)"]
 Expressions_3 = ["3", "(3)"]
 Expressions_4 = ["4", "(4)"]
 Expressions_5 = ["5", "(5)"]
-def printt(operation, result):
+
+def printt(operation):
+  if operation == "perimeter":
+    result = perimeter
+  elif operation == "area":
+    result = area
+  elif operation == "volume":
+    result = volume
+  else:
+    print("Something went wrong!")
   print("\nThe", operation, "is", result)
 
 #==============================================================================================================================================================================================================
 #Loop & calculation
 #==============================================================================================================================================================================================================
 while True:
-  print(" \n ")
 
 #==============================================================================================================================================================================================================
 #User inputs
 #==============================================================================================================================================================================================================
-  user_input_operation = input("Enter an operation\n: ")
+  user_input_operation = input("\nEnter an operation\n: ")
 
 #==============================================================================================================================================================================================================
 #Perimeter menu
 #==============================================================================================================================================================================================================
   if user_input_operation in Perimeter_expressions:#Select geometric figure
+    perimeter = 0
+    Number_of_sides = 0
     geometric_figure = input("\nChoose a geometric figure.\n\n(1) Regular geometric figures (equal sides)\n(2) Rectangle\n(3) Triangle\n(4) Circle\n(5) Geometric figure\n\n:")
-    print()
 
 #==============================================================================================================================================================================================================
 #Perimeter of regular geometric figures (number of sides)
 #==============================================================================================================================================================================================================
     if geometric_figure in Expressions_1:
-      Number_of_sides = input("How many sides?\n:")
-      Number_of_sides_float = float(Number_of_sides)
-      print("\n")
+      try:
+        Number_of_sides = int(input("\nHow many sides?\n:"))
+      except:
+        print("Unknown input")
+        continue
 
 #==============================================================================================================================================================================================================
 #Perimeter of regular geometric figures (if it isn't a square)
 #==============================================================================================================================================================================================================
-      if Number_of_sides_float > 2 and Number_of_sides_float != 4:#At least 2 sides
-        Measurement_Sides = float(input("Measurement of the sides\n:"))
-        printt("perimeter", (Number_of_sides_float * Measurement_Sides))
+      if Number_of_sides > 2 and Number_of_sides != 4:#At least 2 sides
+        try:
+          Measurement_Sides = float(input("\nMeasurement of the sides\n:"))
+        except:
+          print("Unknown input")
+          continue
+        perimeter = Number_of_sides * Measurement_Sides
+        printt("perimeter")
 
 #==============================================================================================================================================================================================================
 #Perimeter of regular geometric figures (if it is a square)
 #==============================================================================================================================================================================================================
-      elif Number_of_sides_float == 4:
+      elif Number_of_sides == 4:
         Calculation_option_Square = input("What do you want to use as measurement?\n\n(1) Side\n(2) Diagonal\n\n:")
         if Calculation_option_Square in Expressions_1:#If side, multiply by 4
-          Square_Side = float(input("\nMeasurement\n:"))
-          printt("perimeter", (4 * Square_Side))
+          try:
+            Square_Side = float(input("\nMeasurement\n:"))
+          except:
+            print("Unknown input")
+            continue
+          perimeter = 4 * Square_Side
+          printt("perimeter")
         elif Calculation_option_Square in Expressions_2:#If diagonal, calculate the side         ### diagonal**2 = 2*(side**2) <=> side = diagonal/(sqrt 2)
-          Square_Diagonal = float(input("\nMeasurement\n:"))                                     ### perimeter = no of sides * lenght of the side <=> perimeter = 4 * diagonal/(sqrt 2)
-          printt("perimeter", (4 * (2 ** (1 / 2)) * Square_Diagonal))                            ### perimeter = (2 ** (5/2)) * diagonal or 4 * (2 ** (1 / 2)) * diagonal
+          try:                                                                                   ### perimeter = no of sides * lenght of the side <=> perimeter = 4 * diagonal/(sqrt 2)
+            Square_Diagonal = float(input("\nMeasurement\n:"))                                   ### perimeter = (2 ** (5/2)) * diagonal or 4 * (2 ** (1 / 2)) * diagonal
+          except:
+            print("Unknown input")
+            continue
+          perimeter = 4 * (2 ** (1 / 2)) * Square_Diagonal
+          printt("perimeter")
         else:#Unknown input
           print("Unknown input")
       else:
@@ -83,9 +110,14 @@ while True:
 #Perimeter of an rectangle
 #==============================================================================================================================================================================================================
     elif geometric_figure in Expressions_2:
-      Rectangle_Side1 = float(input("Measurement of side 1\n:"))
-      Rectangle_Side2 = float(input("Measurement of side 2\n:"))
-      printt("perimeter", (2 * (Rectangle_Side1 + Rectangle_Side2)))
+      try:
+        Rectangle_Side1 = float(input("Measurement of side 1\n:"))
+        Rectangle_Side2 = float(input("Measurement of side 2\n:"))
+      except:
+        print("Unknown input")
+        continue
+      perimeter = 2 * (Rectangle_Side1 + Rectangle_Side2)
+      printt("perimeter")
 
 #==============================================================================================================================================================================================================
 #Perimeter of an triangle
@@ -94,57 +126,79 @@ while True:
       Triangle_Side1 = float(input("Measurement of side 1\n:"))
       Triangle_Side2 = float(input("Measurement of side 2\n:"))
       Triangle_Side3 = float(input("Measurement of side 3\n:"))
-      printt("perimeter", (Triangle_Side1 + Triangle_Side2 + Triangle_Side3))
+      perimeter = Triangle_Side1 + Triangle_Side2 + Triangle_Side3
+      printt("perimeter")
 
 #==============================================================================================================================================================================================================
 #Perimeter of an circle (pi)
 #==============================================================================================================================================================================================================
     elif geometric_figure in Expressions_4:
-      Use_Pi = input("\n\nUse Pi or define it?\n\n(1) Use Pi\n(2) Use custom Pi\n\n:")#Define pi
+      Use_Pi = input("Use Pi or define it?\n\n(1) Use Pi\n(2) Use custom Pi\n\n:")#Define pi
       if Use_Pi in Expressions_1:#default pi
         pi = pie
       elif Use_Pi in Expressions_2:#user aproximation
       	while True:
-        	pi_ = input("\nCustom Pi\n:")
-          try:#try to use float
+          pi_ = input("\nCustom Pi\n:")
+          try: #try to use float
             pi = float(pi_)
-        	if pi == 3 or pi == 3.1 or 3.15 <= pi <= 3.14:#if float and reasonable
-        		break
+          except:
+            continue
+          if pi == 3 or pi == 3.1 or 3.15 <= pi <= 3.14:#if float and reasonable
+            break
           elif pi_ == "pi" or pi_ == "real pi" or pi_ == "π":#if not float and reasonable, use the real pi
             pi = pie
             break
-        	else:
-        		print("Thats definitely not pi.")
+          else:
+            print("Thats definitely not pi.")
       else:
         print("Unknown input")
 
 #==============================================================================================================================================================================================================
 #Perimeter of an circle (diameter or radius)
 #==============================================================================================================================================================================================================
-      Calculation_option_Circle = input("What do you want to use as measurement?\n(1) Radius\n(2) Diameter\n\n:")
+      Calculation_option_Circle = input("\nWhat do you want to use as measurement?\n(1) Radius\n(2) Diameter\n\n:")
       if Calculation_option_Circle in Expressions_1:#diameter
-        Diameter_Circle = 2 * float(input("Measurement of the radius\n:"))#diameter to radius
+        try:
+          Diameter_Circle = 2 * float(input("Measurement of the radius\n:"))#diameter to radius
+        except:
+          print("Unknown input")
+          continue
       elif Calculation_option_Circle not in Expressions_1 and Calculation_option_Circle not in Expressions_2:
         print("Unknown input")
       else:#radius
-        Diameter_Circle = float(input("Measurement of the diameter\n:"))
+        try:
+          Diameter_Circle = float(input("Measurement of the diameter\n:"))
+        except:
+          print("Unknown input")
+          continue
 
 #==============================================================================================================================================================================================================
 #Perimeter of an circle (answer)
 #==============================================================================================================================================================================================================
-      printt("perimeter", (pi * Diameter_Circle))
+      perimeter = pi * Diameter_Circle
+      printt("perimeter")
 
 #==============================================================================================================================================================================================================
 #Perimeter of any given figure
 #==============================================================================================================================================================================================================
     elif geometric_figure in Expressions_5:
-      Number_of_sides_fig_int = int(input("How many sides?\n:"))#number of sides
-      Perimeter_fig = 0
+      try:
+        Number_of_sides = int(input("How many sides?\n:"))#number of sides
+      except:
+        print("Unknown input")
+        continue
       print()
-      for i in range(Number_of_sides_fig_int):#sum of every side
-        side = float(input("Side " + str(i+1) + ": "))
-        Perimeter_fig += side
-      printt("perimeter", Perimeter_fig)#answer
+      for i in range(Number_of_sides):#sum of every side
+        try:
+          side = float(input("Side " + str(i+1) + ": "))
+          perimeter += side
+        except:
+          print("Unknown input")
+          break
+        if i == Number_of_sides:
+          printt("perimeter")#answer
+        else:
+          continue
 
 #==============================================================================================================================================================================================================
 #Unsupported figures
