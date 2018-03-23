@@ -19,6 +19,7 @@ print("\n\n\n\n\n\n\n\nOptions:\nEnter what you want to calculate (perimeter, ar
 #Defining groups of inputs, functions and imports.
 #==============================================================================================================================================================================================================
 from math import pi as pie
+import re
 
 Perimeter_expressions = ["perimeter", "Perimeter", "p", "P"]
 Area_expressions = ["area", "Area", "a", "A"]
@@ -28,6 +29,7 @@ Expressions_2 = ["2", "(2)"]
 Expressions_3 = ["3", "(3)"]
 Expressions_4 = ["4", "(4)"]
 Expressions_5 = ["5", "(5)"]
+notnumbers = r"[^0-9]"
 
 def printt(operation):
   if operation == "perimeter":
@@ -183,7 +185,7 @@ while True:
 #==============================================================================================================================================================================================================
     elif geometric_figure in Expressions_5:
       try:
-        Number_of_sides = int(input("How many sides?\n:"))#number of sides
+        Number_of_sides = int(input("\nHow many sides?\n:"))#number of sides
       except:
         print("Unknown input")
         continue
@@ -194,11 +196,14 @@ while True:
           perimeter += side
         except:
           print("Unknown input")
-          break
-        if i == Number_of_sides:
-          printt("perimeter")#answer
-        else:
-          continue
+          while True:
+            side = input("Side " + str(i+1) + ": ")
+            if re.search(notnumbers, side):
+              print("Unknown input")
+            else:
+              perimeter += float(side)
+              break
+      printt("perimeter")#answer
 
 #==============================================================================================================================================================================================================
 #Unsupported figures
