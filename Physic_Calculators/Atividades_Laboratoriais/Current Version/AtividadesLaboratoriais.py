@@ -27,3 +27,7 @@ mainWin = tk.Tk()
 verGUI = ""
 verAtvLab = ""
 
+#======================
+# Start GUI
+#======================
+mainWin.mainloop()
