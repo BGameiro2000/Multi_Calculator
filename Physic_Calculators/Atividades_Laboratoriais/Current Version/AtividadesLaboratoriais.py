@@ -18,8 +18,12 @@ import tkinter as tk
 from tkinter import ttk, Menu
 from tkinter import messagebox as msg
 
+# creating instance
+mainWin = tk.Tk()
+
 #==========
 # version
 #==========
 verGUI = ""
 verAtvLab = ""
+
