@@ -15,7 +15,7 @@ O projeto será reaslizado apenas com as atividades laboratoriais de Física, ma
 
 verAtvLab = ""
 
-class Disciplinas:
+class Disciplines:
     #def __init__(self, discipline, year, name, code, pdfInfo, help, id):
     def __init__(self, discipline, year, name, code, info, help, description, material, procedure, id):
         self.discipline = discipline
@@ -38,7 +38,7 @@ class Physics(Disciplinas):
         g = 10 #m/(s**2)
 """
 
-class Physics(Disciplinas):
+class Physics(Disciplines):
     self.discipline = "Física"
 
 class Tenth(Physics):
