@@ -17,6 +17,7 @@ GUI para as atividades laboratoriais de Física do secundário em Python 3 e Tki
 import tkinter as tk
 from tkinter import ttk, Menu
 from tkinter import messagebox as msg
+from Data.AtividadesClasses import *
 
 # creating instance
 mainWin = tk.Tk()
@@ -25,7 +26,8 @@ mainWin = tk.Tk()
 # version
 #==========
 verGUI = ""
-verAtvLab = ""
+versaoAtvividadesLaboratoriais = verAtvLab
+verPDF = ""
 
 #======================
 # Start GUI
