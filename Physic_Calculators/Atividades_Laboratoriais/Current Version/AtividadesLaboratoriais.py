@@ -10,3 +10,10 @@ More in
 
 GUI para as atividades laboratoriais de Física do secundário em Python 3 e Tkinter
 """
+
+#==========
+# imports
+#==========
+import tkinter as tk
+from tkinter import ttk, Menu
+from tkinter import messagebox as msg
