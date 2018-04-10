@@ -43,7 +43,7 @@ class Physics(LaboratoryActivities): #child of main class, defines the disciplin
     # Attributes (discipline --> Física)
     #==========
     def __init__(self, year, code, name, pdfInfo, help):
-        LaboratoryActivities.__init__(self, Physics.discipline, year, code, name, pdfInfo, help)
+        LaboratoryActivities.__init__(self, self.discipline, year, code, name, pdfInfo, help)
 
     #==========
     # Constants SI
@@ -52,11 +52,12 @@ class Physics(LaboratoryActivities): #child of main class, defines the disciplin
 
 """
 class Chemistry(LaboratoryActivities): #child of main class, defines the discipline
+    discipline = "Química"
     #==========
     # Attributes (discipline --> Química)
     #==========
     def __init__(self, year, code, name, pdfInfo, help):
-        LaboratoryActivities.__init__(self, "Química", year, code, name, pdfInfo, help)
+        LaboratoryActivities.__init__(self, self.discipline, year, code, name, pdfInfo, help)
 
     #==========
     # Constants SI
@@ -73,7 +74,7 @@ class PhysicsTenth(Physics): #child of Physics subclass, defines the year
     # Attributes (year --> 10)
     #==========
     def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, PhysicsTenth.year, code, name, pdfInfo, help)
+        Physics.__init__(self, self.year, code, name, pdfInfo, help)
 
 class PhysicsEleventh(Physics): #child of Physics subclass, defines the year
     year = "11"
@@ -81,7 +82,7 @@ class PhysicsEleventh(Physics): #child of Physics subclass, defines the year
     # Attributes (year --> 11)
     #==========
     def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, PhysicsEleventh.year, code, name, pdfInfo, help)
+        Physics.__init__(self, self.year, code, name, pdfInfo, help)
 
 class PhysicsTwelfth(Physics): #child of Physics subclass, defines the year
     year = "12"
@@ -89,17 +90,18 @@ class PhysicsTwelfth(Physics): #child of Physics subclass, defines the year
     # Attributes (year --> 12)
     #==========
     def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, PhysicsTwelfth.year, code, name, pdfInfo, help)
+        Physics.__init__(self, self.year, code, name, pdfInfo, help)
 
 #==========
 # Laboratory Activities
 #==========
 class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code and the activity
+    code = "1.1"
     #==========
     # Attributes
     #==========
     def __init__(self, name, pdfInfo, help):
-        PhysicsTenth.__init__(self, "1.1", name, pdfInfo, help)
+        PhysicsTenth.__init__(self, self.code, name, pdfInfo, help)
         self.name = ""
         self.pdfInfo = r""
         self.help = ""
