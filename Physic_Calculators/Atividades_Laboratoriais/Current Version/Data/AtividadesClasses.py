@@ -38,11 +38,12 @@ class LaboratoryActivities: #main class
 # Disciplines
 #==========
 class Physics(LaboratoryActivities): #child of main class, defines the discipline
+    discipline = "Física"
     #==========
     # Attributes (discipline --> Física)
     #==========
     def __init__(self, year, code, name, pdfInfo, help):
-        LaboratoryActivities.__init__(self, "Física", year, code, name, pdfInfo, help)
+        LaboratoryActivities.__init__(self, Physics.discipline, year, code, name, pdfInfo, help)
 
     #==========
     # Constants SI
@@ -67,25 +68,28 @@ class Chemistry(LaboratoryActivities): #child of main class, defines the discipl
 # Years
 #==========
 class PhysicsTenth(Physics): #child of Physics subclass, defines the year
+    year = "10"
     #==========
     # Attributes (year --> 10)
     #==========
     def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, "10", code, name, pdfInfo, help)
+        Physics.__init__(self, PhysicsTenth.year, code, name, pdfInfo, help)
 
 class PhysicsEleventh(Physics): #child of Physics subclass, defines the year
+    year = "11"
     #==========
     # Attributes (year --> 11)
     #==========
     def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, "11", code, name, pdfInfo, help)
+        Physics.__init__(self, PhysicsEleventh.year, code, name, pdfInfo, help)
 
 class PhysicsTwelfth(Physics): #child of Physics subclass, defines the year
+    year = "12"
     #==========
     # Attributes (year --> 12)
     #==========
     def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, "12", code, name, pdfInfo, help)
+        Physics.__init__(self, PhysicsTwelfth.year, code, name, pdfInfo, help)
 
 #==========
 # Laboratory Activities
@@ -106,7 +110,7 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
 #==========
 # Tests
 #==========
-ex0 = Physics("10", "1.1", "name", "pdfinfo", "help")
+ex0 = Physics("11", "1.1", "name", "pdfinfo", "help")
 ex1 = F10AL1_1("name", "pdfinfo", "help")
 
 print("dis", Physics.__init__.discipline)

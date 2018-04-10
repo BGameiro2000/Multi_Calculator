@@ -30,8 +30,9 @@ versaoAtvividadesLaboratoriais = verAtvLab
 verPDF = ""
 
 for cls in LaboratoryActivities.__subclasses__():
-    print(cls)
-#    cls = ttk.LabelFrame(mainWin, text=cls.discipline)
+    label = cls.discipline
+    cls = ttk.LabelFrame(mainWin, text="label").grid(column = 1)
+
 
 #======================
 # Start GUI
