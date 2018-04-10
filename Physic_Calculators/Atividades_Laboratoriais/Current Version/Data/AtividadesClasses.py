@@ -15,14 +15,14 @@ O projeto será reaslizado apenas com as atividades laboratoriais de Física, ma
 
 verAtvLab = ""
 
-class Disciplines:
+class LaboratoryActivities:
     #def __init__(self, discipline, year, name, code, pdfInfo, help, id):
-    def __init__(self, discipline, year, name, code, info, help, description, material, procedure, id):
+    def __init__(self, discipline, year, name, code, info, help, description, material, procedure):
         self.discipline = discipline
         self.year = year
         self.name = name
         self.code = code
-        self.Info = info
+        self.info = info
         self.help = help
         self.description = description
         self.material = material
@@ -38,20 +38,35 @@ class Physics(Disciplinas):
         g = 10 #m/(s**2)
 """
 
-class Physics(Disciplines):
-    self.discipline = "Física"
+class Physics(LaboratoryActivities):
+    def __init__(self, year, name, code, info, help, description, material, procedure):
+        LaboratoryActivities.__init__(self, "Fisica", year, name, code, info, help, description, material, procedure)
+
 
 class Tenth(Physics):
-    self.year = "10"
+    def __init__(self, name, code, info, help, description, material, procedure):
+        Physics.__init__(self, "10", name, code, info, help, description, material, procedure)
 
 class Eleventh(Physics):
-    self.year = "11"
+    def __init__(self, name, code, info, help, description, material, procedure):
+        Physics.__init__(self, "11", name, code, info, help, description, material, procedure)
 
 class Twelfth(Physics):
-    self.year = "12"
+    def __init__(self, name, code, info, help, description, material, procedure):
+        Physics.__init__(self, "12", name, code, info, help, description, material, procedure)
 
-Física_10Ano_AL1_1 = Tenth("name", "code", "info", "help", "description", "material", "procedure", "id")
+ex = Tenth("name", "code", "info", "help", "des", "mater", "proc")
 
-print(Física_10Ano_AL1_1.discipline)
+print("dis", ex.discipline)
+print("y", ex.year)
+print("name", ex.name)
+print("code", ex.code)
+print("info", ex.info)
+print("help", ex.help)
+print("des", ex.description)
+print("mater", ex.material)
+print("proc", ex.procedure)
+print("id", ex.id)
+
 
 #check if variable == object.id
