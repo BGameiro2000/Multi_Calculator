@@ -19,7 +19,7 @@ from tkinter import ttk, Menu
 from tkinter import messagebox as msg
 from Data.AtividadesClasses import *
 
-# creating instance
+# creating instance of main window
 mainWin = tk.Tk()
 
 #==========
@@ -30,9 +30,14 @@ versaoAtvividadesLaboratoriais = verAtvLab
 verPDF = ""
 
 for cls in LaboratoryActivities.__subclasses__():
-    label = cls.discipline
-    cls = ttk.LabelFrame(mainWin, text="label").grid(column = 1)
-
+    containerLabel = str(cls.discipline)
+    print(containerLabel)
+    containerName = "%sContainer" % (cls.discipline)
+    print(containerName)
+    exec(containerName + " = " + "ttk.LabelFrame(mainWin, text=" + containerLabel + ")")
+    exec(containerName + ".grid")
+    
+    dg = ttk.Button(containerName, text="asd")
 
 #======================
 # Start GUI
