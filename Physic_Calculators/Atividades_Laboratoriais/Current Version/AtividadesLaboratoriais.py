@@ -29,6 +29,10 @@ verGUI = ""
 versaoAtvividadesLaboratoriais = verAtvLab
 verPDF = ""
 
+for cls in LaboratoryActivities.__subclasses__():
+    print(cls)
+#    cls = ttk.LabelFrame(mainWin, text=cls.discipline)
+
 #======================
 # Start GUI
 #======================
