@@ -13,60 +13,125 @@ Este ficheiro contém a  informação relativa às diversas atividades laborator
 O projeto será reaslizado apenas com as atividades laboratoriais de Física, mas terá a possibilidade de ser expandido para Química.
 """
 
+#==========
+# Version
+#==========
 verAtvLab = ""
 
-class LaboratoryActivities:
-    #def __init__(self, discipline, year, name, code, pdfInfo, help, id):
-    def __init__(self, discipline, year, name, code, info, help, description, material, procedure):
+#==========
+# Classes
+#==========
+class LaboratoryActivities: #main class
+    #==========
+    # Attributes
+    #==========
+    def __init__(self, discipline, year, code, name, pdfInfo, help):
         self.discipline = discipline
         self.year = year
-        self.name = name
         self.code = code
-        self.info = info
+        self.name = name
+        self.pdfInfo = pdfInfo
         self.help = help
-        self.description = description
-        self.material = material
-        self.procedure = procedure
-        self.id = "%s_%sAno_AL%s" % (discipline, year, code)
+        self.id = "%s %sºAno AL%s" % (discipline, year, code)
+
+#==========
+# Disciplines
+#==========
+class Physics(LaboratoryActivities): #child of main class, defines the discipline
+    #==========
+    # Attributes (discipline --> Física)
+    #==========
+    def __init__(self, year, code, name, pdfInfo, help):
+        LaboratoryActivities.__init__(self, "Física", year, code, name, pdfInfo, help)
+
+    #==========
+    # Constants SI
+    #==========
+    g = 10 #m/(s**2)
+
 """
-class Physics(Disciplinas):
-    
-    def __init_subclass__(self, discipline):
-        self.discipline = "Física"
+class Chemistry(LaboratoryActivities): #child of main class, defines the discipline
+    #==========
+    # Attributes (discipline --> Química)
+    #==========
+    def __init__(self, year, code, name, pdfInfo, help):
+        LaboratoryActivities.__init__(self, "Química", year, code, name, pdfInfo, help)
 
-    def constants(self):
-        g = 10 #m/(s**2)
+    #==========
+    # Constants SI
+    #==========
+    NA = 6.022*10**23 #1/mol
 """
 
-class Physics(LaboratoryActivities):
-    def __init__(self, year, name, code, info, help, description, material, procedure):
-        LaboratoryActivities.__init__(self, "Fisica", year, name, code, info, help, description, material, procedure)
+#==========
+# Years
+#==========
+class PhysicsTenth(Physics): #child of Physics subclass, defines the year
+    #==========
+    # Attributes (year --> 10)
+    #==========
+    def __init__(self, code, name, pdfInfo, help):
+        Physics.__init__(self, "10", code, name, pdfInfo, help)
+
+class PhysicsEleventh(Physics): #child of Physics subclass, defines the year
+    #==========
+    # Attributes (year --> 11)
+    #==========
+    def __init__(self, code, name, pdfInfo, help):
+        Physics.__init__(self, "11", code, name, pdfInfo, help)
+
+class PhysicsTwelfth(Physics): #child of Physics subclass, defines the year
+    #==========
+    # Attributes (year --> 12)
+    #==========
+    def __init__(self, code, name, pdfInfo, help):
+        Physics.__init__(self, "12", code, name, pdfInfo, help)
+
+#==========
+# Laboratory Activities
+#==========
+class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code and the activity
+    #==========
+    # Attributes
+    #==========
+    def __init__(self, name, pdfInfo, help):
+        PhysicsTenth.__init__(self, "1.1", name, pdfInfo, help)
+        self.name = ""
+        self.pdfInfo = r""
+        self.help = ""
+        def userInputs(x):
+            x = input()
+
+"""
+#==========
+# Tests
+#==========
+ex0 = Physics("10", "1.1", "name", "pdfinfo", "help")
+ex1 = F10AL1_1("name", "pdfinfo", "help")
+
+print("dis", Physics.__init__.discipline)
+print("y", Physics.year)
+print("code", Physics.code)
+print("name", Physics.name)
+print("info", Physics.pdfInfo)
+print("help", Physics.help)
+print("id", Physics.id)
 
 
-class Tenth(Physics):
-    def __init__(self, name, code, info, help, description, material, procedure):
-        Physics.__init__(self, "10", name, code, info, help, description, material, procedure)
-
-class Eleventh(Physics):
-    def __init__(self, name, code, info, help, description, material, procedure):
-        Physics.__init__(self, "11", name, code, info, help, description, material, procedure)
-
-class Twelfth(Physics):
-    def __init__(self, name, code, info, help, description, material, procedure):
-        Physics.__init__(self, "12", name, code, info, help, description, material, procedure)
-
-ex = Tenth("name", "code", "info", "help", "des", "mater", "proc")
-
-print("dis", ex.discipline)
-print("y", ex.year)
-print("name", ex.name)
-print("code", ex.code)
-print("info", ex.info)
-print("help", ex.help)
-print("des", ex.description)
-print("mater", ex.material)
-print("proc", ex.procedure)
-print("id", ex.id)
+print("dis", ex0.discipline)
+print("y", ex0.year)
+print("code", ex0.code)
+print("name", ex0.name)
+print("info", ex0.pdfInfo)
+print("help", ex0.help)
+print("id", ex0.id)
 
 
-#check if variable == object.id
+print("dis", ex1.discipline)
+print("y", ex1.year)
+print("code", ex1.code)
+print("name", ex1.name)
+print("info", ex1.pdfInfo)
+print("help", ex1.help)
+print("id", ex1.id)
+"""
