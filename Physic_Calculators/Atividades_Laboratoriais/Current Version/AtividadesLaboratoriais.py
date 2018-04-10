@@ -32,12 +32,14 @@ verPDF = ""
 for cls in LaboratoryActivities.__subclasses__():
     containerLabel = str(cls.discipline)
     print(containerLabel)
-    containerName = "%sContainer" % (cls.discipline)
+    containerName = '%sContainer' % (cls.discipline)
     print(containerName)
-    exec(containerName + " = " + "ttk.LabelFrame(mainWin, text=" + containerLabel + ")")
-    exec(containerName + ".grid")
+    createContainers = '%s = ttk.LabelFrame(mainWin, text="%s")\n%s.grid()' % (containerName, containerLabel, containerName)
+    print(createContainers)
     
-    dg = ttk.Button(containerName, text="asd")
+    exec(createContainers)
+    
+    dg = ttk.Button(FísicaContainer, text="asd")
 
 #======================
 # Start GUI
