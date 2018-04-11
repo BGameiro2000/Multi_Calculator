@@ -39,7 +39,9 @@ for cls in LaboratoryActivities.__subclasses__():
     
     exec(createContainers)
     
-    dg = ttk.Button(FísicaContainer, text="asd")
+    createbutton = 'test = ttk.Button(%s, text="test").grid()' % (containerName)
+    print(createbutton)
+    exec(createbutton)
 
 #======================
 # Start GUI
