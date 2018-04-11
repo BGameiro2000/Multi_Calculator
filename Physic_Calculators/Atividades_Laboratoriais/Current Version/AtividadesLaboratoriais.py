@@ -25,7 +25,6 @@ mainWin = tk.Tk()
 #==========
 # version
 #==========
-verGUI = ""
 verGUI = "A"
 versaoAtvividadesLaboratoriais = verAtvLab
 verPDF = ""
