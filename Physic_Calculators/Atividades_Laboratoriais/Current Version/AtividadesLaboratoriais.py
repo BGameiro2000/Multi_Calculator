@@ -26,13 +26,14 @@ mainWin = tk.Tk()
 # version
 #==========
 verGUI = ""
+verGUI = "A"
 versaoAtvividadesLaboratoriais = verAtvLab
 verPDF = ""
 
 for cls in LaboratoryActivities.__subclasses__():
     containerLabel = str(cls.discipline)
     print(containerLabel)
-    containerName = '%sContainer' % (cls.discipline)
+    containerName = '%sContainer' % (containerLabel)
     print(containerName)
     createContainers = '%s = ttk.LabelFrame(mainWin, text="%s")\n%s.grid()' % (containerName, containerLabel, containerName)
     print(createContainers)
