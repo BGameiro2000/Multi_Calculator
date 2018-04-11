@@ -29,11 +29,14 @@ verGUI = "B"
 versaoAtvividadesLaboratoriais = verAtvLab
 verPDF = ""
 
-for cls in LaboratoryActivities.__subclasses__():
-    container = ttk.LabelFrame(mainWin, text=cls.discipline)
+for cls0 in LaboratoryActivities.__subclasses__():
+    container = ttk.LabelFrame(mainWin, text=cls0.discipline)
     container.grid()
-    
-    test = ttk.Button(container, text="test").grid()
+    test = ttk.Button(container, text="disc").grid(column=0, row=0)
+    for cls1 in cls0.__subclasses__():
+        container1 = ttk.LabelFrame(container, text=cls1.year)
+        container1.grid()
+        test = ttk.Button(container1, text="year").grid(column=1, row=1)
 
 
 #======================
