@@ -32,7 +32,7 @@ class LaboratoryActivities: #main class
         self.name = name
         self.pdfInfo = pdfInfo
         self.help = help
-        self.id = "%s %sºAno AL%s" % (discipline, year, code)
+        self.id = "%s %sAno AL%s" % (discipline, year, code)
 
 #==========
 # Disciplines
@@ -69,7 +69,7 @@ class Chemistry(LaboratoryActivities): #child of main class, defines the discipl
 # Years
 #==========
 class PhysicsTenth(Physics): #child of Physics subclass, defines the year
-    year = "10"
+    year = "10º"
     #==========
     # Attributes (year --> 10)
     #==========
@@ -77,7 +77,7 @@ class PhysicsTenth(Physics): #child of Physics subclass, defines the year
         Physics.__init__(self, self.year, code, name, pdfInfo, help)
 
 class PhysicsEleventh(Physics): #child of Physics subclass, defines the year
-    year = "11"
+    year = "11º"
     #==========
     # Attributes (year --> 11)
     #==========
@@ -85,7 +85,7 @@ class PhysicsEleventh(Physics): #child of Physics subclass, defines the year
         Physics.__init__(self, self.year, code, name, pdfInfo, help)
 
 class PhysicsTwelfth(Physics): #child of Physics subclass, defines the year
-    year = "12"
+    year = "12º"
     #==========
     # Attributes (year --> 12)
     #==========
