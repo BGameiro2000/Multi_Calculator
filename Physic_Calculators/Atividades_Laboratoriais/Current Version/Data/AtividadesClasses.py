@@ -50,7 +50,6 @@ class Physics(LaboratoryActivities): #child of main class, defines the disciplin
     #==========
     g = 10 #m/(s**2)
 
-"""
 class Chemistry(LaboratoryActivities): #child of main class, defines the discipline
     discipline = "Química"
     #==========
@@ -63,7 +62,6 @@ class Chemistry(LaboratoryActivities): #child of main class, defines the discipl
     # Constants SI
     #==========
     NA = 6.022*10**23 #1/mol
-"""
 
 #==========
 # Years
@@ -91,6 +89,30 @@ class PhysicsTwelfth(Physics): #child of Physics subclass, defines the year
     #==========
     def __init__(self, code, name, pdfInfo, help):
         Physics.__init__(self, self.year, code, name, pdfInfo, help)
+
+class ChemistryTenth(Chemistry): #child of Chemistry subclass, defines the year
+    year = "10º"
+    #==========
+    # Attributes (year --> 10)
+    #==========
+    def __init__(self, code, name, pdfInfo, help):
+        Chemistry.__init__(self, self.year, code, name, pdfInfo, help)
+
+class ChemistryEleventh(Chemistry): #child of Chemistry subclass, defines the year
+    year = "11º"
+    #==========
+    # Attributes (year --> 11)
+    #==========
+    def __init__(self, code, name, pdfInfo, help):
+        Chemistry.__init__(self, self.year, code, name, pdfInfo, help)
+
+class ChemistryTwelfth(Chemistry): #child of Chemistry subclass, defines the year
+    year = "12º"
+    #==========
+    # Attributes (year --> 12)
+    #==========
+    def __init__(self, code, name, pdfInfo, help):
+        Chemistry.__init__(self, self.year, code, name, pdfInfo, help)
 
 #==========
 # Laboratory Activities
