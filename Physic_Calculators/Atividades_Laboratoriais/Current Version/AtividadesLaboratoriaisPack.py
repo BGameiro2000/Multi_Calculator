@@ -69,6 +69,12 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
     tabControl1.grid() # show notebook 1
 tabControl0.grid() # show notebook 0
 
+
+style = ttk.Style()
+g = style.theme_names()
+print(g)
+style.theme_use(themename='clam')
+
 #======================
 # Start GUI
 #======================
