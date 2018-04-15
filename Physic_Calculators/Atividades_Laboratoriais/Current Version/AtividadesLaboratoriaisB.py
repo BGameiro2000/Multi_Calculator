@@ -38,15 +38,15 @@ verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 #==========
 # structure
 #==========
-mainContainer = ttk.LabelFrame(mainWin, text="") # main container
+mainContainer = ttk.LabelFrame(mainWin, text="Escolha a disciplina:") # main container
 mainContainer.grid()
-tabControl0 = ttk.Notebook(mainWin) # main notebook inside container
+tabControl0 = ttk.Notebook(mainContainer) # main notebook inside container
 
 for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 and a container inside each tab
     tabLabel = str(cls0.specialAttribute)
     tab = ttk.Frame(tabControl0)
     tabControl0.add(tab, text=tabLabel)
-    container = ttk.LabelFrame(tab, text=tabLabel)
+    container = ttk.LabelFrame(tab, text="Escolha o ano:")
     container.grid()
     tabControl1 = ttk.Notebook(container)
 
@@ -54,7 +54,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
         tabLabel = str(cls1.specialAttribute)
         tab = ttk.Frame(tabControl1)
         tabControl1.add(tab, text=tabLabel)
-        container = ttk.LabelFrame(tab, text=tabLabel)
+        container = ttk.LabelFrame(tab, text="Escolha a atividade laboratorial:")
         container.grid()
         tabControl2 = ttk.Notebook(container)
 
@@ -62,7 +62,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             tabLabel = str(cls2.specialAttribute)
             tab = ttk.Frame(tabControl2)
             tabControl2.add(tab, text=tabLabel)
-            container = ttk.LabelFrame(tab, text=tabLabel)
+            container = ttk.LabelFrame(tab, text=(cls0.specialAttribute, cls1.specialAttribute, cls2.specialAttribute))
             container.grid()
 
         tabControl2.grid() # show notebook 2
