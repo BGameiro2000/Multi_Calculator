@@ -70,6 +70,38 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
 tabControl0.pack() # show notebook 0
 
 #======================
+# menu bar
+#======================
+# Creating a Menu Bar
+menuBar = Menu(mainWin)
+mainWin.config(menu=menuBar)
+
+# Add menu items
+# File menu
+file_menu = Menu(menuBar, tearoff=0)
+file_menu.add_command(label="Novo")
+file_menu.add_separator()
+file_menu.add_command(label="Versão")
+file_menu.add_separator()
+file_menu.add_command(label="Sair")
+menuBar.add_cascade(label="Ficheiro", menu=file_menu)
+edit_menu = Menu(menuBar, tearoff=0)
+edit_menu.add_command(label="Procurar atualização")
+edit_menu.add_separator()
+edit_menu.add_command(label="Alterar atividades laboratoriais")
+menuBar.add_cascade(label="Editar", menu=edit_menu)
+help_menu = Menu(menuBar, tearoff=0)
+help_menu.add_command(label="Informação")
+help_menu.add_separator()
+help_menu.add_command(label="Ajuda")
+menuBar.add_cascade(label="Ajuda", menu=help_menu)
+donate_menu = Menu(menuBar, tearoff=0)
+donate_menu.add_command(label="Donativos")
+donate_menu.add_separator()
+donate_menu.add_command(label="Sugestões")
+menuBar.add_cascade(label="Contribuir", menu=donate_menu)
+
+#======================
 # Start GUI
 #======================
 mainWin.mainloop()
