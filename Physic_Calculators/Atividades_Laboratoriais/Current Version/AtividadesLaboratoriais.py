@@ -25,23 +25,32 @@ mainWin = tk.Tk()
 #==========
 # version
 #==========
-verGUI = "A"
-versaoAtvividadesLaboratoriais = verAtvLab
+verGUI = ""
 verPDF = ""
+verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 
-for cls in LaboratoryActivities.__subclasses__():
-    containerLabel = str(cls.discipline)
-    print(containerLabel)
-    containerName = '%sContainer' % (containerLabel)
-    print(containerName)
-    createContainers = '%s = ttk.LabelFrame(mainWin, text="%s")\n%s.grid()' % (containerName, containerLabel, containerName)
-    print(createContainers)
-    
-    exec(createContainers)
-    
-    createbutton = 'test = ttk.Button(%s, text="test").grid()' % (containerName)
-    print(createbutton)
-    exec(createbutton)
+#==========
+# functions
+#==========
+def xNotebook(container, parentClass, childAttribute):
+    tabControl = ttk.Notebook(container)
+    for cls in parentClass.__subclasses__():
+        childCharacteristic = cls.childAttribute
+        tabLabel = str(childCharacteristic)
+        tab = ttk.Frame(tabControl)
+        tabControl.add(tab, text=tabLabel)
+        containerName = '%sContainer' % (tabLabel)
+        createContainers = '%s = ttk.LabelFrame(tab, text="%s")\n%s.grid()' % (containerName, tabLabel, containerName)
+        exec(createContainers)
+    tabControl.grid()
+
+#==========
+#
+#==========
+mainContainer = ttk.LabelFrame(mainWin, text="")
+mainContainer.grid()
+
+xNotebook(mainContainer, LaboratoryActivities, discipline)
 
 #======================
 # Start GUI
