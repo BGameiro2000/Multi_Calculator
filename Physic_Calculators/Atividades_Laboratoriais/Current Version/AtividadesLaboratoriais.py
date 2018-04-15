@@ -22,11 +22,11 @@ from Data.AtividadesClasses import *
 # creating instance of main window
 mainWin = tk.Tk()
 
-#======================
+#==========
 # title
-#======================
+#==========
 # Title of the window    
-mainWin.title("Atividades Laboratoriais Secundário")
+mainWin.title("Atividades Laboratoriais do Secundário")
 
 #==========
 # version
@@ -38,26 +38,33 @@ verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 #==========
 # functions
 #==========
-def xNotebook(container, parentClass):
+disciplinesContainersList = []
+yearContainersList = []
+def xNotebook(container, parentClass, listAppend):
     tabControl = ttk.Notebook(container)
     for cls in parentClass.__subclasses__():
         tabLabel = str(cls.specialAttribute)
         tab = ttk.Frame(tabControl)
         tabControl.add(tab, text=tabLabel)
         containerName = '%sContainer' % (tabLabel)
+        listAppend.append(containerName)
         createContainers = '%s = ttk.LabelFrame(tab, text="%s")\n%s.grid()' % (containerName, tabLabel, containerName)
         exec(createContainers)
     tabControl.grid()
 
 #==========
-#
+# structure
 #==========
 mainContainer = ttk.LabelFrame(mainWin, text="")
 mainContainer.grid()
 
-xNotebook(mainContainer, LaboratoryActivities)
+xNotebook(mainContainer, LaboratoryActivities, disciplinesContainersList)
 
-#======================
+for cls in LaboratoryActivities.__subclasses__():
+    for disc in disciplinesContainersList:
+        xNotebook(disc, cls, yearContainersList)
+
+#==========
 # Start GUI
-#======================
+#==========
 mainWin.mainloop()
