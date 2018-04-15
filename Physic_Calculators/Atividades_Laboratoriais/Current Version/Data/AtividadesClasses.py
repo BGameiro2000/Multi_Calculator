@@ -127,39 +127,6 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
         self.name = ""
         self.pdfInfo = r""
         self.help = ""
-        def userInputs(x):
-            x = input()
-
-"""
-#==========
-# Tests
-#==========
-ex0 = Physics("11", "1.1", "name", "pdfinfo", "help")
-ex1 = F10AL1_1("name", "pdfinfo", "help")
-
-print("dis", Physics.__init__.discipline)
-print("y", Physics.year)
-print("code", Physics.code)
-print("name", Physics.name)
-print("info", Physics.pdfInfo)
-print("help", Physics.help)
-print("id", Physics.id)
-
-
-print("dis", ex0.discipline)
-print("y", ex0.year)
-print("code", ex0.code)
-print("name", ex0.name)
-print("info", ex0.pdfInfo)
-print("help", ex0.help)
-print("id", ex0.id)
-
-
-print("dis", ex1.discipline)
-print("y", ex1.year)
-print("code", ex1.code)
-print("name", ex1.name)
-print("info", ex1.pdfInfo)
-print("help", ex1.help)
-print("id", ex1.id)
-"""
+    
+    def userInputs(self, x):
+        x = input()
