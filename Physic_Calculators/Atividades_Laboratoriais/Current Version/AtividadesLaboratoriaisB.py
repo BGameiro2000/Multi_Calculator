@@ -23,21 +23,51 @@ from Data.AtividadesClasses import *
 mainWin = tk.Tk()
 
 #==========
+# title
+#==========
+# Title of the window    
+mainWin.title("Atividades Laboratoriais do Secundário")
+
+#==========
 # version
 #==========
-verGUI = "B"
-versaoAtvividadesLaboratoriais = verAtvLab
+verGUI = ""
 verPDF = ""
+verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 
-for cls0 in LaboratoryActivities.__subclasses__():
-    container = ttk.LabelFrame(mainWin, text=cls0.discipline)
+#==========
+# structure
+#==========
+mainContainer = ttk.LabelFrame(mainWin, text="") # main container
+mainContainer.grid()
+tabControl0 = ttk.Notebook(mainWin) # main notebook inside container
+
+for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 and a container inside each tab
+    tabLabel = str(cls0.specialAttribute)
+    tab = ttk.Frame(tabControl0)
+    tabControl0.add(tab, text=tabLabel)
+    container = ttk.LabelFrame(tab, text=tabLabel)
     container.grid()
-    test = ttk.Button(container, text="disc").grid(column=0, row=0)
-    for cls1 in cls0.__subclasses__():
-        container1 = ttk.LabelFrame(container, text=cls1.year)
-        container1.grid()
-        test = ttk.Button(container1, text="year").grid(column=1, row=1)
+    tabControl1 = ttk.Notebook(container)
 
+    for cls1 in cls0.__subclasses__(): # create tabs for notebook 1 and a container inside each tab
+        tabLabel = str(cls1.specialAttribute)
+        tab = ttk.Frame(tabControl1)
+        tabControl1.add(tab, text=tabLabel)
+        container = ttk.LabelFrame(tab, text=tabLabel)
+        container.grid()
+        tabControl2 = ttk.Notebook(container)
+
+        for cls2 in cls1.__subclasses__(): # create tabs for notebook 2 and a container inside each tab
+            tabLabel = str(cls2.specialAttribute)
+            tab = ttk.Frame(tabControl2)
+            tabControl2.add(tab, text=tabLabel)
+            container = ttk.LabelFrame(tab, text=tabLabel)
+            container.grid()
+
+        tabControl2.grid() # show notebook 2
+    tabControl1.grid() # show notebook 1
+tabControl0.grid() # show notebook 0
 
 #======================
 # Start GUI
