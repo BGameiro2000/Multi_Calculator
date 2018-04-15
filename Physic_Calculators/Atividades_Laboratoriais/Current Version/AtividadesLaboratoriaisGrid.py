@@ -36,35 +36,40 @@ verPDF = ""
 verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 
 #==========
-# functions
-#==========
-disciplinesContainersList = []
-yearContainersList = []
-def xNotebook(container, parentClass, listAppend):
-    tabControl = ttk.Notebook(container)
-    for cls in parentClass.__subclasses__():
-        tabLabel = str(cls.specialAttribute)
-        tab = ttk.Frame(tabControl)
-        tabControl.add(tab, text=tabLabel)
-        containerName = '%sContainer' % (tabLabel)
-        listAppend.append(containerName)
-        createContainers = '%s = ttk.LabelFrame(tab, text="%s")\n%s.grid()' % (containerName, tabLabel, containerName)
-        exec(createContainers)
-    tabControl.grid()
-
-#==========
 # structure
 #==========
-mainContainer = ttk.LabelFrame(mainWin, text="")
+mainContainer = ttk.LabelFrame(mainWin, text="Escolha a disciplina:") # main container
 mainContainer.grid()
+tabControl0 = ttk.Notebook(mainContainer) # main notebook inside container
 
-xNotebook(mainContainer, LaboratoryActivities, disciplinesContainersList)
+for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 and a container inside each tab
+    tabLabel = str(cls0.specialAttribute)
+    tab = ttk.Frame(tabControl0)
+    tabControl0.add(tab, text=tabLabel)
+    container = ttk.LabelFrame(tab, text="Escolha o ano:")
+    container.grid()
+    tabControl1 = ttk.Notebook(container)
 
-for cls in LaboratoryActivities.__subclasses__():
-    for disc in disciplinesContainersList:
-        xNotebook(disc, cls, yearContainersList)
+    for cls1 in cls0.__subclasses__(): # create tabs for notebook 1 and a container inside each tab
+        tabLabel = str(cls1.specialAttribute)
+        tab = ttk.Frame(tabControl1)
+        tabControl1.add(tab, text=tabLabel)
+        container = ttk.LabelFrame(tab, text="Escolha a atividade laboratorial:")
+        container.grid()
+        tabControl2 = ttk.Notebook(container)
 
-#==========
+        for cls2 in cls1.__subclasses__(): # create tabs for notebook 2 and a container inside each tab
+            tabLabel = str(cls2.specialAttribute)
+            tab = ttk.Frame(tabControl2)
+            tabControl2.add(tab, text=tabLabel)
+            container = ttk.LabelFrame(tab, text=(cls0.specialAttribute, cls1.specialAttribute, cls2.specialAttribute))
+            container.grid()
+
+        tabControl2.grid() # show notebook 2
+    tabControl1.grid() # show notebook 1
+tabControl0.grid() # show notebook 0
+
+#======================
 # Start GUI
-#==========
+#======================
 mainWin.mainloop()
