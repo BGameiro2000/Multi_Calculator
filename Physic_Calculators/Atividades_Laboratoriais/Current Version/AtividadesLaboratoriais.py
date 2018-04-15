@@ -38,10 +38,10 @@ verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 #==========
 # functions
 #==========
-def xNotebook(container, parentClass, childAttribute):
+def xNotebook(container, parentClass):
     tabControl = ttk.Notebook(container)
     for cls in parentClass.__subclasses__():
-        tabLabel = str(cls.childAttribute)
+        tabLabel = str(cls.specialAttribute)
         tab = ttk.Frame(tabControl)
         tabControl.add(tab, text=tabLabel)
         containerName = '%sContainer' % (tabLabel)
@@ -55,7 +55,7 @@ def xNotebook(container, parentClass, childAttribute):
 mainContainer = ttk.LabelFrame(mainWin, text="")
 mainContainer.grid()
 
-xNotebook(mainContainer, LaboratoryActivities, "discipline")
+xNotebook(mainContainer, LaboratoryActivities)
 
 #======================
 # Start GUI
