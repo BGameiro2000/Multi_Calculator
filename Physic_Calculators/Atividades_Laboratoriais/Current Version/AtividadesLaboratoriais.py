@@ -22,6 +22,12 @@ from Data.AtividadesClasses import *
 # creating instance of main window
 mainWin = tk.Tk()
 
+#======================
+# title
+#======================
+# Title of the window    
+mainWin.title("Atividades Laboratoriais Secundário")
+
 #==========
 # version
 #==========
@@ -35,8 +41,7 @@ verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 def xNotebook(container, parentClass, childAttribute):
     tabControl = ttk.Notebook(container)
     for cls in parentClass.__subclasses__():
-        childCharacteristic = cls.childAttribute
-        tabLabel = str(childCharacteristic)
+        tabLabel = str(cls.childAttribute)
         tab = ttk.Frame(tabControl)
         tabControl.add(tab, text=tabLabel)
         containerName = '%sContainer' % (tabLabel)
@@ -50,7 +55,7 @@ def xNotebook(container, parentClass, childAttribute):
 mainContainer = ttk.LabelFrame(mainWin, text="")
 mainContainer.grid()
 
-xNotebook(mainContainer, LaboratoryActivities, discipline)
+xNotebook(mainContainer, LaboratoryActivities, "discipline")
 
 #======================
 # Start GUI
