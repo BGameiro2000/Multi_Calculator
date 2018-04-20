@@ -130,8 +130,8 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
     PhysicalQuantitiesValues = ["Massa do carrinho", "Distância dp carrinho à célula fotovoltaica", "Largura da faixa do carrinho", "Intervao de tempo que a célula foi interrompida"]
     PhysicalQuantitiesExp = []
 
-    PhysicalQuantitiesValuesDic = [dict([(var, val)]) for var, val in zip(PhysicalQuantitiesVar, PhysicalQuantitiesValues)]
-    PhysicalQuantitiesExpDic = [dict([(var, exp)]) for var, exp in zip(PhysicalQuantitiesVar, PhysicalQuantitiesExp)]
+    PhysicalQuantitiesValuesDic = {var: val for var, val in zip(PhysicalQuantitiesVar, PhysicalQuantitiesValues)}
+    PhysicalQuantitiesExpDic = {var: exp for var, exp in zip(PhysicalQuantitiesVar, PhysicalQuantitiesExp)}
 
     def doActivity(self, m=None, d=None, l=None, Δt=None):
         v = l / Δt
