@@ -39,7 +39,7 @@ verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 # structure
 #==========
 mainContainer = ttk.LabelFrame(mainWin, text="Escolha a disciplina:") # main container
-mainContainer.grid()
+mainContainer.grid(padx=5, pady=5)
 tabControl0 = ttk.Notebook(mainContainer) # main notebook inside container
 
 for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 and a container inside each tab
@@ -47,7 +47,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
     tab = ttk.Frame(tabControl0)
     tabControl0.add(tab, text=tabLabel)
     container = ttk.LabelFrame(tab, text="Escolha o ano:")
-    container.grid()
+    container.grid(padx=5, pady=5)
     tabControl1 = ttk.Notebook(container)
 
     for cls1 in cls0.__subclasses__(): # create tabs for notebook 1 and a container inside each tab
@@ -55,7 +55,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
         tab = ttk.Frame(tabControl1)
         tabControl1.add(tab, text=tabLabel)
         container = ttk.LabelFrame(tab, text="Escolha a atividade laboratorial:")
-        container.grid()
+        container.grid(padx=5, pady=5)
         tabControl2 = ttk.Notebook(container)
 
         for cls2 in cls1.__subclasses__(): # create tabs for notebook 2 and a container inside each tab
@@ -63,11 +63,11 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             tab = ttk.Frame(tabControl2)
             tabControl2.add(tab, text=tabLabel)
             container = ttk.LabelFrame(tab, text=(cls0.specialAttribute, cls1.specialAttribute, cls2.specialAttribute))
-            container.grid()
+            container.grid(padx=5, pady=5)
 
-        tabControl2.grid() # show notebook 2
-    tabControl1.grid() # show notebook 1
-tabControl0.grid() # show notebook 0
+        tabControl2.grid(padx=5, pady=5) # show notebook 2
+    tabControl1.grid(padx=5, pady=5) # show notebook 1
+tabControl0.grid(padx=5, pady=5) # show notebook 0
 
 #======================
 # menu bar
