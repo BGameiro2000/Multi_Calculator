@@ -19,6 +19,15 @@ O projeto será reaslizado apenas com as atividades laboratoriais de Física, ma
 verAtvLab = ""
 
 #==========
+# Units
+#==========
+massDic = {"Gg": 10**6, "Mg": 10**3, "Kg": 1, "hg": 0.1, "dag": 0.1**2, "g": 0.1**3, "dg": 0.1**4, "cg": 0.1**5, "mg": 0.1**6}
+disDic = {"Gm": 10**9, "Mm": 10**6, "km": 10**3, "hm": 10**2, "dam": 10, "m":1, "dm": 0.1, "cm": 0.1**2, "mm": 0.1**3, "µm":0.1**6, "nm":0.1**6}
+timeDic = {"Gs": 10**9, "Ms": 10**6, "ks": 10**3, "hs": 10**2, "das": 10, "s":1, "ds": 0.1, "cs": 0.1**2, "ms": 0.1**3, "µs":0.1**6, "ns":0.1**6}
+velDic = {"Gm/s": 10**9, "Mm/s": 10**6, "km/s": 10**3, "hm/s": 10**2, "dam/s": 10, "m/s":1, "dm/s": 0.1, "cm/s": 0.1**2, "mm/s": 0.1**3, "µm/s":0.1**6, "nm/s":0.1**6}
+enerDic = {"GJ": 10**9, "MJ": 10**6, "kJ": 10**3, "hJ": 10**2, "daJ": 10, "J":1, "dJ": 0.1, "cJ": 0.1**2, "mJ": 0.1**3, "µJ":0.1**6, "nJ":0.1**6}
+
+#==========
 # Classes
 #==========
 class LaboratoryActivities: #main class
@@ -133,7 +142,7 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
     # Data lists
     PhysicalQuantitiesVar = ["m", "d", "l", "Δt"]
     PhysicalQuantitiesExp = ["Massa do carrinho", "Distância do carrinho à célula fotovoltaica", "Largura da faixa do carrinho", "Intervao de tempo que a célula foi interrompida"]
-    PhysicalQuantitiesUnits = ["Kg", "m", "m", "s"]
+    PhysicalQuantitiesUnits = [massDic, disDic, disDic, timeDic]
     PhysicalQuantitiesValues = []
     # Data dictionairies
     PhysicalQuantitiesExpDic = {var: exp for var, exp in zip(PhysicalQuantitiesVar, PhysicalQuantitiesExp)}
@@ -142,8 +151,10 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
     # Results lists
     AnsVar = ["v", "Ec"]
     AnsExp = ["Veloscidade", "Energia cinética"]
-    AnsUnits = ["m/s", "J"]
+    AnsUnits = [velDic, enerDic]
     # Results dictionairies
+    AnsExpDic = {var: exp for var, exp in zip(AnsVar, AnsExp)}
+    AnsUnitsDic = {var: un for var, un in zip(AnsVar, AnsUnits)}
 
     def doActivity(self, m=None, d=None, l=None, Δt=None):
         v = l / Δt
