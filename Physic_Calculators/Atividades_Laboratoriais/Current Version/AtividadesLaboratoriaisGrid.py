@@ -65,6 +65,16 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             container = ttk.LabelFrame(tab, text=(cls0.specialAttribute, cls1.specialAttribute, cls2.specialAttribute))
             container.grid(padx=5, pady=5)
 
+            ttk.Label(container, text=cls2.name).grid(column=0, row=0, sticky="W")
+            containerVal = ttk.LabelFrame(container, text="Dados")
+            containerVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
+
+            for val in cls2.PhysicalQuantitiesVar:
+                ttk.Label(containerVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, sticky="W")
+                cls2.PhysicalQuantitiesValuesDic[val] = tk.DoubleVar()
+                valueBox = ttk.Entry(containerVal, width=10, textvariable=cls2.PhysicalQuantitiesValuesDic[val])
+                valueBox.grid(column=1, sticky="E")
+
         tabControl2.grid(padx=5, pady=5) # show notebook 2
     tabControl1.grid(padx=5, pady=5) # show notebook 1
 tabControl0.grid(padx=5, pady=5) # show notebook 0
