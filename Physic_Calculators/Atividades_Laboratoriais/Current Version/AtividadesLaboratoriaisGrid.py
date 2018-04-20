@@ -82,9 +82,12 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
                 #valueUnit.current(cls2.PhysicalQuantitiesUnitsDic[val])
             checkVal.grid(column=2, sticky="E", padx=5, pady=5)
 
+            #cls2.doActivity(None, **cls2.PhysicalQuantitiesValuesDic)
             containerAns = ttk.LabelFrame(container, text="Resultados")
             containerAns.grid(column=1, row=1, sticky="W", padx=5, pady=5)
-            #for ans in cls2.doActivity():
+            for ans in cls2.AnsVar:
+                idx = list(cls2.AnsVar).index(ans)
+                ttk.Label(containerAns, text=cls2.AnsExpDic[ans]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
       
         tabControl2.grid(padx=5, pady=5) # show notebook 2
     tabControl1.grid(padx=5, pady=5) # show notebook 1
