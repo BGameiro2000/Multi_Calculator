@@ -77,15 +77,15 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
                 valueBox = ttk.Entry(containerVal, width=10, textvariable=cls2.PhysicalQuantitiesValuesDic[val], justify="right")
                 valueBox.grid(column=1, row=idx, sticky="E", padx=5, pady=5)
                 valueUnit = ttk.Combobox(containerVal, width=5, text=cls2.PhysicalQuantitiesUnitsDic[val])
+                valueUnit['values'] = list(cls2.PhysicalQuantitiesUnitsDic[val])
                 valueUnit.grid(column=2, row=idx, padx=5, pady=5)
                 #valueUnit.current(cls2.PhysicalQuantitiesUnitsDic[val])
             checkVal.grid(column=2, sticky="E", padx=5, pady=5)
 
             containerAns = ttk.LabelFrame(container, text="Resultados")
             containerAns.grid(column=1, row=1, sticky="W", padx=5, pady=5)
-            for ans in cls2.doActivity():
-                
-
+            #for ans in cls2.doActivity():
+      
         tabControl2.grid(padx=5, pady=5) # show notebook 2
     tabControl1.grid(padx=5, pady=5) # show notebook 1
 tabControl0.grid(padx=5, pady=5) # show notebook 0
