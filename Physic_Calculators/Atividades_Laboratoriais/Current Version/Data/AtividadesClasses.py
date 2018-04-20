@@ -25,13 +25,12 @@ class LaboratoryActivities: #main class
     #==========
     # Attributes
     #==========
-    def __init__(self, discipline, year, code, name, pdfInfo, help):
+    def __init__(self, discipline, year, code, name, pdfInfo):
         self.discipline = discipline
         self.year = year
         self.code = code
         self.name = name
         self.pdfInfo = pdfInfo
-        self.help = help
         self.id = "%s %sAno AL%s" % (discipline, year, code)
 
 #==========
@@ -42,8 +41,8 @@ class Physics(LaboratoryActivities): #child of main class, defines the disciplin
     #==========
     # Attributes (discipline --> Física)
     #==========
-    def __init__(self, year, code, name, pdfInfo, help):
-        LaboratoryActivities.__init__(self, self.specialAttribute, year, code, name, pdfInfo, help)
+    def __init__(self, year, code, name, pdfInfo):
+        LaboratoryActivities.__init__(self, self.specialAttribute, year, code, name, pdfInfo)
 
     #==========
     # Constants SI
@@ -55,8 +54,8 @@ class Chemistry(LaboratoryActivities): #child of main class, defines the discipl
     #==========
     # Attributes (discipline --> Química)
     #==========
-    def __init__(self, year, code, name, pdfInfo, help):
-        LaboratoryActivities.__init__(self, self.specialAttribute, year, code, name, pdfInfo, help)
+    def __init__(self, year, code, name, pdfInfo):
+        LaboratoryActivities.__init__(self, self.specialAttribute, year, code, name, pdfInfo)
 
     #==========
     # Constants SI
@@ -71,48 +70,48 @@ class PhysicsTenth(Physics): #child of Physics subclass, defines the year
     #==========
     # Attributes (year --> 10)
     #==========
-    def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, self.specialAttribute, code, name, pdfInfo, help)
+    def __init__(self, code, name, pdfInfo):
+        Physics.__init__(self, self.specialAttribute, code, name, pdfInfo)
 
 class PhysicsEleventh(Physics): #child of Physics subclass, defines the year
     specialAttribute = "11º"
     #==========
     # Attributes (year --> 11)
     #==========
-    def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, self.specialAttribute, code, name, pdfInfo, help)
+    def __init__(self, code, name, pdfInfo):
+        Physics.__init__(self, self.specialAttribute, code, name, pdfInfo)
 
 class PhysicsTwelfth(Physics): #child of Physics subclass, defines the year
     specialAttribute = "12º"
     #==========
     # Attributes (year --> 12)
     #==========
-    def __init__(self, code, name, pdfInfo, help):
-        Physics.__init__(self, self.specialAttribute, code, name, pdfInfo, help)
+    def __init__(self, code, name, pdfInfo):
+        Physics.__init__(self, self.specialAttribute, code, name, pdfInfo)
 
 class ChemistryTenth(Chemistry): #child of Chemistry subclass, defines the year
     specialAttribute = "10º"
     #==========
     # Attributes (year --> 10)
     #==========
-    def __init__(self, code, name, pdfInfo, help):
-        Chemistry.__init__(self, self.specialAttribute, code, name, pdfInfo, help)
+    def __init__(self, code, name, pdfInfo):
+        Chemistry.__init__(self, self.specialAttribute, code, name, pdfInfo)
 
 class ChemistryEleventh(Chemistry): #child of Chemistry subclass, defines the year
     specialAttribute = "11º"
     #==========
     # Attributes (year --> 11)
     #==========
-    def __init__(self, code, name, pdfInfo, help):
-        Chemistry.__init__(self, self.specialAttribute, code, name, pdfInfo, help)
+    def __init__(self, code, name, pdfInfo):
+        Chemistry.__init__(self, self.specialAttribute, code, name, pdfInfo)
 
 class ChemistryTwelfth(Chemistry): #child of Chemistry subclass, defines the year
     specialAttribute = "12º"
     #==========
     # Attributes (year --> 12)
     #==========
-    def __init__(self, code, name, pdfInfo, help):
-        Chemistry.__init__(self, self.specialAttribute, code, name, pdfInfo, help)
+    def __init__(self, code, name, pdfInfo):
+        Chemistry.__init__(self, self.specialAttribute, code, name, pdfInfo)
 
 #==========
 # Laboratory Activities
@@ -122,11 +121,11 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
     #==========
     # Attributes (code --> 1.1)
     #==========
-    def __init__(self, name, pdfInfo, help):
-        PhysicsTenth.__init__(self, self.specialAttribute, name, pdfInfo, help)
-        self.name = ""
+    def __init__(self, name, pdfInfo):
+        PhysicsTenth.__init__(self, self.specialAttribute, name, pdfInfo)
+        self.name = "Movimento num plano inclinado: variação da energia cinética e distância percorrida"
         self.pdfInfo = r""
-        self.help = ""
     
-    def userInputs(self, x):
-        x = input()
+    PhysicalQuantities = {}
+
+    def doActivity(self, **kwargs):
