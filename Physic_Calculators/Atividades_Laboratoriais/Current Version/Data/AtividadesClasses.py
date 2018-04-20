@@ -118,14 +118,21 @@ class ChemistryTwelfth(Chemistry): #child of Chemistry subclass, defines the yea
 #==========
 class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code and the activity
     specialAttribute = "1.1"
+    name = "Movimento num plano inclinado:\nvariação da energia cinética e distância percorrida"
+    pdfInfo = r""
     #==========
     # Attributes (code --> 1.1)
     #==========
     def __init__(self, name, pdfInfo):
-        PhysicsTenth.__init__(self, self.specialAttribute, name, pdfInfo)
-        self.name = "Movimento num plano inclinado: variação da energia cinética e distância percorrida"
-        self.pdfInfo = r""
+        PhysicsTenth.__init__(self, self.specialAttribute, self.name, self.pdfInfo)
     
-    PhysicalQuantities = {}
+    PhysicalQuantitiesVar = ["m", "d", "l", "Δt"]
+    PhysicalQuantitiesValues = ["Massa do carrinho", "Distância dp carrinho à célula fotovoltaica", "Largura da faixa do carrinho", "Intervao de tempo que a célula foi interrompida"]
+    PhysicalQuantitiesExp = []
 
-    def doActivity(self, **kwargs):
+    PhysicalQuantitiesValuesDic = [dict([(var, val)]) for var, val in zip(PhysicalQuantitiesVar, PhysicalQuantitiesValues)]
+    PhysicalQuantitiesExpDic = [dict([(var, exp)]) for var, exp in zip(PhysicalQuantitiesVar, PhysicalQuantitiesExp)]
+
+    def doActivity(self, m=None, d=None, l=None, Δt=None):
+        v = l / Δt
+        Ec = (0.5) * m * (v**2)
