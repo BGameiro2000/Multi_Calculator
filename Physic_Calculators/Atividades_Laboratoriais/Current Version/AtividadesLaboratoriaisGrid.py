@@ -19,14 +19,15 @@ from tkinter import ttk, Menu
 from tkinter import messagebox as msg
 from Data.AtividadesClasses import *
 
+#==========
+# define window
+#==========
 # creating instance of main window
 mainWin = tk.Tk()
-
-#==========
-# title
-#==========
 # Title of the window    
 mainWin.title("Atividades Laboratoriais do Secundário")
+# size
+#mainWin.geometry('550x450')
 
 #==========
 # version
@@ -64,16 +65,26 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             tabControl2.add(tab, text=tabLabel)
             container = ttk.LabelFrame(tab, text=(cls0.specialAttribute, cls1.specialAttribute, cls2.specialAttribute))
             container.grid(padx=5, pady=5)
-
             ttk.Label(container, text=cls2.name).grid(column=0, row=0, sticky="W")
+
             containerVal = ttk.LabelFrame(container, text="Dados")
             containerVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
-
+            checkVal = ttk.Button(containerVal, text="Calcular")
             for val in cls2.PhysicalQuantitiesVar:
-                ttk.Label(containerVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, sticky="W")
+                idx = list(cls2.PhysicalQuantitiesVar).index(val)
+                ttk.Label(containerVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
                 cls2.PhysicalQuantitiesValuesDic[val] = tk.DoubleVar()
-                valueBox = ttk.Entry(containerVal, width=10, textvariable=cls2.PhysicalQuantitiesValuesDic[val])
-                valueBox.grid(column=1, sticky="E")
+                valueBox = ttk.Entry(containerVal, width=10, textvariable=cls2.PhysicalQuantitiesValuesDic[val], justify="right")
+                valueBox.grid(column=1, row=idx, sticky="E", padx=5, pady=5)
+                valueUnit = ttk.Combobox(containerVal, width=5, text=cls2.PhysicalQuantitiesUnitsDic[val])
+                valueUnit.grid(column=2, row=idx, padx=5, pady=5)
+                #valueUnit.current(cls2.PhysicalQuantitiesUnitsDic[val])
+            checkVal.grid(column=2, sticky="E", padx=5, pady=5)
+
+            containerAns = ttk.LabelFrame(container, text="Resultados")
+            containerAns.grid(column=1, row=1, sticky="W", padx=5, pady=5)
+            for ans in cls2.doActivity():
+                
 
         tabControl2.grid(padx=5, pady=5) # show notebook 2
     tabControl1.grid(padx=5, pady=5) # show notebook 1
