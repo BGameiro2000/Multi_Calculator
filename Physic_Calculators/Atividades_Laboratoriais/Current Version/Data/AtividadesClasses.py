@@ -150,7 +150,7 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
     PhysicalQuantitiesValuesDic = {var: val for var, val in zip(PhysicalQuantitiesVar, PhysicalQuantitiesValues)}
     # Results lists
     AnsVar = ["v", "Ec"]
-    AnsExp = ["Veloscidade", "Energia cinética"]
+    AnsExp = ["Velocidade", "Energia cinética"]
     AnsUnits = [velDic, enerDic]
     # Results dictionairies
     AnsExpDic = {var: exp for var, exp in zip(AnsVar, AnsExp)}
