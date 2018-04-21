@@ -79,7 +79,6 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
                 valueUnit = ttk.Combobox(containerVal, width=5, text=cls2.PhysicalQuantitiesUnitsDic[val])
                 valueUnit['values'] = list(cls2.PhysicalQuantitiesUnitsDic[val])
                 valueUnit.grid(column=2, row=idx, padx=5, pady=5)
-                #valueUnit.current(cls2.PhysicalQuantitiesUnitsDic[val])
             checkVal.grid(column=2, sticky="E", padx=5, pady=5)
 
             #cls2.doActivity(None, **cls2.PhysicalQuantitiesValuesDic)
