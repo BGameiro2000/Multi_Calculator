@@ -37,12 +37,21 @@ verPDF = ""
 verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 
 #==========
+# functions
+#==========
+def updateCurrent(event=None):
+    currentTrySP.config(to=noTries.get())
+    if noTries.get() == 1: currentTry.set(1) # Needed to set spinbox value = 1
+
+#==========
 # structure
 #==========
+# main container/window level
 mainContainer = ttk.LabelFrame(mainWin, text="Escolha a disciplina:") # main container
 mainContainer.grid(padx=5, pady=5)
 tabControl0 = ttk.Notebook(mainContainer) # main notebook inside container
 
+# discipline level
 for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 and a container inside each tab
     tabLabel = str(cls0.specialAttribute)
     tab = ttk.Frame(tabControl0)
@@ -51,6 +60,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
     container.grid(padx=5, pady=5)
     tabControl1 = ttk.Notebook(container)
 
+    # year level
     for cls1 in cls0.__subclasses__(): # create tabs for notebook 1 and a container inside each tab
         tabLabel = str(cls1.specialAttribute)
         tab = ttk.Frame(tabControl1)
@@ -58,7 +68,8 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
         container = ttk.LabelFrame(tab, text="Escolha a atividade laboratorial:")
         container.grid(padx=5, pady=5)
         tabControl2 = ttk.Notebook(container)
-
+        
+        # activity level
         for cls2 in cls1.__subclasses__(): # create tabs for notebook 2 and a container inside each tab
             tabLabel = str(cls2.specialAttribute)
             tab = ttk.Frame(tabControl2)
@@ -67,19 +78,36 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             container.grid(padx=5, pady=5)
             ttk.Label(container, text=cls2.name).grid(column=0, row=0, sticky="W")
 
+            # Data&results level -> containers
             containerVal = ttk.LabelFrame(container, text="Dados")
             containerVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
-            checkVal = ttk.Button(containerVal, text="Calcular")
+            noActivities = ttk.LabelFrame(containerVal, text="Número de repetições")
+            noActivities.grid(column=0, row=0, sticky="W", padx=5, pady=5)
+            currentVal = ttk.LabelFrame(containerVal, text="Repetição")
+            currentVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
+
+            # Data&results level -> Number of data inserts
+            ttk.Label(noActivities, text="Quantas repetições da atividade laboratorial vai realizar?").grid(column=0, row=0, sticky="W", padx=2, pady=2)
+            noTries = tk.IntVar()
+            noTriesSP = tk.Spinbox(noActivities, from_=1, to=20, textvariable=noTries, state="readonly", width=3, command=updateCurrent)
+            noTriesSP.grid(column=1, row=0, padx=2, pady=2)
+            ttk.Label(noActivities, text="Qual a repetição que quer inserir/alterar?").grid(column=0, row=1, sticky="W", padx=2, pady=2)
+            currentTry = tk.IntVar()
+            currentTrySP = tk.Spinbox(noActivities, from_=1, to=1, textvariable=currentTry, state="readonly", width=3)
+            currentTrySP.grid(column=1, row=1, padx=2, pady=2)
+            currentTry.set(1)     # Needed to set spinbox value = 1
+
+            #checkVal = ttk.Button(containerVal, text="Calcular")
             for val in cls2.PhysicalQuantitiesVar:
                 idx = list(cls2.PhysicalQuantitiesVar).index(val)
-                ttk.Label(containerVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
+                ttk.Label(currentVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
                 cls2.PhysicalQuantitiesValuesDic[val] = tk.DoubleVar()
-                valueBox = ttk.Entry(containerVal, width=10, textvariable=cls2.PhysicalQuantitiesValuesDic[val], justify="right")
+                valueBox = ttk.Entry(currentVal, width=10, textvariable=cls2.PhysicalQuantitiesValuesDic[val], justify="right")
                 valueBox.grid(column=1, row=idx, sticky="E", padx=5, pady=5)
-                valueUnit = ttk.Combobox(containerVal, width=5, text=cls2.PhysicalQuantitiesUnitsDic[val])
+                valueUnit = ttk.Combobox(currentVal, width=5, text=cls2.PhysicalQuantitiesUnitsDic[val], state="readonly")
                 valueUnit['values'] = list(cls2.PhysicalQuantitiesUnitsDic[val])
                 valueUnit.grid(column=2, row=idx, padx=5, pady=5)
-            checkVal.grid(column=2, sticky="E", padx=5, pady=5)
+            #checkVal.grid(column=2, sticky="E", padx=5, pady=5)
 
             #cls2.doActivity(None, **cls2.PhysicalQuantitiesValuesDic)
             containerAns = ttk.LabelFrame(container, text="Resultados")
