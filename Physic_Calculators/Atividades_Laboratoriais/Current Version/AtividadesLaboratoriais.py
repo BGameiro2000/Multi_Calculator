@@ -83,8 +83,10 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             containerVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
             noActivities = ttk.LabelFrame(containerVal, text="Número de repetições")
             noActivities.grid(column=0, row=0, padx=5, pady=5)
-            currentVal = ttk.LabelFrame(containerVal, text="Repetição")
+            currentVal = ttk.LabelFrame(containerVal, text="Repetição atual")
             currentVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
+            allVal = ttk.LabelFrame(containerVal, text="Repetições")
+            allVal.grid(column=0, row=2, sticky="W", padx=5, pady=5)
 
             # Data&results level -> Number of data inserts
             ttk.Label(noActivities, text="Quantas repetições da atividade laboratorial vai realizar?").grid(column=0, row=0, sticky="W", padx=2, pady=2)
@@ -97,7 +99,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             currentTrySP.grid(column=1, row=1, padx=2, pady=2)
             currentTry.set(1)     # Needed to set spinbox value = 1
 
-            #checkVal = ttk.Button(containerVal, text="Calcular")
+            # Data&results level -> Current data insert
             for val in cls2.PhysicalQuantitiesVar:
                 idx = list(cls2.PhysicalQuantitiesVar).index(val)
                 ttk.Label(currentVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
@@ -107,14 +109,18 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
                 valueUnit = ttk.Combobox(currentVal, width=5, text=cls2.PhysicalQuantitiesUnitsDic[val], state="readonly")
                 valueUnit['values'] = list(cls2.PhysicalQuantitiesUnitsDic[val])
                 valueUnit.grid(column=2, row=idx, padx=5, pady=5)
-            #checkVal.grid(column=2, sticky="E", padx=5, pady=5)
 
-            #cls2.doActivity(None, **cls2.PhysicalQuantitiesValuesDic)
+            # Results -> containers
             containerAns = ttk.LabelFrame(container, text="Resultados")
             containerAns.grid(column=1, row=1, sticky="W", padx=5, pady=5)
+            allAns = ttk.LabelFrame(containerAns, text="Resultado atual")
+            allAns.grid(column=0, row=0, padx=5, pady=5)
+            averageAns = ttk.LabelFrame(containerAns, text="Média dos resultados")
+            averageAns.grid(column=0, row=1, padx=5, pady=5)
+
             for ans in cls2.AnsVar:
                 idx = list(cls2.AnsVar).index(ans)
-                ttk.Label(containerAns, text=cls2.AnsExpDic[ans]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
+                ttk.Label(allAns, text=cls2.AnsExpDic[ans]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
       
         tabControl2.grid(padx=5, pady=5) # show notebook 2
     tabControl1.grid(padx=5, pady=5) # show notebook 1
