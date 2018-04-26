@@ -37,6 +37,12 @@ verPDF = ""
 verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 
 #==========
+# variables
+#==========
+maxTries = 20
+pad = 4
+
+#==========
 # functions
 #==========
 def updateCurrent(event=None):
@@ -48,7 +54,7 @@ def updateCurrent(event=None):
 #==========
 # main container/window level
 mainContainer = ttk.LabelFrame(mainWin, text="Escolha a disciplina:") # main container
-mainContainer.grid(padx=5, pady=5)
+mainContainer.grid(padx=pad, pady=pad)
 tabControl0 = ttk.Notebook(mainContainer) # main notebook inside container
 
 # discipline level
@@ -57,7 +63,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
     tab = ttk.Frame(tabControl0)
     tabControl0.add(tab, text=tabLabel)
     container = ttk.LabelFrame(tab, text="Escolha o ano:")
-    container.grid(padx=5, pady=5)
+    container.grid(padx=pad, pady=pad)
     tabControl1 = ttk.Notebook(container)
 
     # year level
@@ -66,7 +72,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
         tab = ttk.Frame(tabControl1)
         tabControl1.add(tab, text=tabLabel)
         container = ttk.LabelFrame(tab, text="Escolha a atividade laboratorial:")
-        container.grid(padx=5, pady=5)
+        container.grid(padx=pad, pady=pad)
         tabControl2 = ttk.Notebook(container)
         
         # activity level
@@ -75,56 +81,56 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             tab = ttk.Frame(tabControl2)
             tabControl2.add(tab, text=tabLabel)
             container = ttk.LabelFrame(tab, text=(cls0.specialAttribute, cls1.specialAttribute, cls2.specialAttribute))
-            container.grid(padx=5, pady=5)
+            container.grid(padx=pad, pady=pad)
             ttk.Label(container, text=cls2.name).grid(column=0, row=0, sticky="W")
 
             # Data&results level -> containers
             containerVal = ttk.LabelFrame(container, text="Dados")
-            containerVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
+            containerVal.grid(column=0, row=1, sticky="W", padx=pad, pady=pad)
             noActivities = ttk.LabelFrame(containerVal, text="Número de repetições")
-            noActivities.grid(column=0, row=0, padx=5, pady=5)
+            noActivities.grid(column=0, row=0, padx=pad, pady=pad)
             currentVal = ttk.LabelFrame(containerVal, text="Repetição atual")
-            currentVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
+            currentVal.grid(column=0, row=1, sticky="W", padx=pad, pady=pad)
             allVal = ttk.LabelFrame(containerVal, text="Repetições")
-            allVal.grid(column=0, row=2, sticky="W", padx=5, pady=5)
+            allVal.grid(column=0, row=2, sticky="W", padx=pad, pady=pad)
 
             # Data&results level -> Number of data inserts
-            ttk.Label(noActivities, text="Quantas repetições da atividade laboratorial vai realizar?").grid(column=0, row=0, sticky="W", padx=2, pady=2)
+            ttk.Label(noActivities, text="Quantas repetições da atividade laboratorial vai realizar?").grid(column=0, row=0, sticky="W", padx=pad, pady=pad)
             noTries = tk.IntVar()
-            noTriesSP = tk.Spinbox(noActivities, from_=1, to=20, textvariable=noTries, state="readonly", width=3, command=updateCurrent)
-            noTriesSP.grid(column=1, row=0, padx=2, pady=2)
-            ttk.Label(noActivities, text="Qual a repetição que quer inserir/alterar?").grid(column=0, row=1, sticky="W", padx=2, pady=2)
+            noTriesSP = tk.Spinbox(noActivities, from_=1, to=maxTries, textvariable=noTries, state="readonly", width=3, command=updateCurrent)
+            noTriesSP.grid(column=1, row=0, padx=pad, pady=pad)
+            ttk.Label(noActivities, text="Qual a repetição que quer inserir/alterar?").grid(column=0, row=1, sticky="W", padx=pad, pady=pad)
             currentTry = tk.IntVar()
             currentTrySP = tk.Spinbox(noActivities, from_=1, to=1, textvariable=currentTry, state="readonly", width=3)
-            currentTrySP.grid(column=1, row=1, padx=2, pady=2)
+            currentTrySP.grid(column=1, row=1, padx=pad, pady=pad)
             currentTry.set(1)     # Needed to set spinbox value = 1
 
             # Data&results level -> Current data insert
             for val in cls2.PhysicalQuantitiesVar:
                 idx = list(cls2.PhysicalQuantitiesVar).index(val)
-                ttk.Label(currentVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
+                ttk.Label(currentVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, row=idx, sticky="W", padx=pad, pady=pad)
                 cls2.PhysicalQuantitiesValuesDic[val] = tk.DoubleVar()
                 valueBox = ttk.Entry(currentVal, width=10, textvariable=cls2.PhysicalQuantitiesValuesDic[val], justify="right")
-                valueBox.grid(column=1, row=idx, sticky="E", padx=5, pady=5)
+                valueBox.grid(column=1, row=idx, sticky="E", padx=pad, pady=pad)
                 valueUnit = ttk.Combobox(currentVal, width=5, text=cls2.PhysicalQuantitiesUnitsDic[val], state="readonly")
                 valueUnit['values'] = list(cls2.PhysicalQuantitiesUnitsDic[val])
-                valueUnit.grid(column=2, row=idx, padx=5, pady=5)
+                valueUnit.grid(column=2, row=idx, padx=pad, pady=pad)
 
             # Results -> containers
             containerAns = ttk.LabelFrame(container, text="Resultados")
-            containerAns.grid(column=1, row=1, sticky="W", padx=5, pady=5)
-            allAns = ttk.LabelFrame(containerAns, text="Resultado atual")
-            allAns.grid(column=0, row=0, padx=5, pady=5)
+            containerAns.grid(column=1, row=1, sticky="W", padx=pad, pady=pad)
+            allAns = ttk.LabelFrame(containerAns, text="Todos os resultados")
+            allAns.grid(column=0, row=0, padx=pad, pady=pad)
             averageAns = ttk.LabelFrame(containerAns, text="Média dos resultados")
-            averageAns.grid(column=0, row=1, padx=5, pady=5)
+            averageAns.grid(column=0, row=1, padx=pad, pady=pad)
 
             for ans in cls2.AnsVar:
                 idx = list(cls2.AnsVar).index(ans)
-                ttk.Label(allAns, text=cls2.AnsExpDic[ans]+":").grid(column=0, row=idx, sticky="W", padx=5, pady=5)
+                ttk.Label(allAns, text=cls2.AnsExpDic[ans]+":").grid(column=0, row=idx, sticky="W", padx=pad, pady=pad)
       
-        tabControl2.grid(padx=5, pady=5) # show notebook 2
-    tabControl1.grid(padx=5, pady=5) # show notebook 1
-tabControl0.grid(padx=5, pady=5) # show notebook 0
+        tabControl2.grid(padx=pad, pady=pad) # show notebook 2
+    tabControl1.grid(padx=pad, pady=pad) # show notebook 1
+tabControl0.grid(padx=pad, pady=pad) # show notebook 0
 
 #======================
 # menu bar
