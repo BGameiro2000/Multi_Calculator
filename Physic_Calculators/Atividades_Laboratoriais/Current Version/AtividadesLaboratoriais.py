@@ -48,6 +48,9 @@ pad = 4
 def updateCurrent(event=None):
     currentTrySP.config(to=noTries.get())
     if noTries.get() == 1: currentTry.set(1) # Needed to set spinbox value = 1
+    for no in range( noTries.get() ):
+        name = "atv"+no
+        triesDict[no] = name # rever
 
 #==========
 # structure
@@ -106,6 +109,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             currentTry.set(1)     # Needed to set spinbox value = 1
 
             # Data&results level -> Current data insert
+            # need to associate the results with a try (object)
             for val in cls2.PhysicalQuantitiesVar:
                 idx = list(cls2.PhysicalQuantitiesVar).index(val)
                 ttk.Label(currentVal, text=cls2.PhysicalQuantitiesExpDic[val]+":").grid(column=0, row=idx, sticky="W", padx=pad, pady=pad)
@@ -116,17 +120,20 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
                 valueUnit['values'] = list(cls2.PhysicalQuantitiesUnitsDic[val])
                 valueUnit.grid(column=2, row=idx, padx=pad, pady=pad)
 
+            # Data&results level -> All data inserts and average
+            # First they have to be associated with each try
+
+            # Creation of data results
+            # Average of each data in order to calculate the average result
+
             # Results -> containers
             containerAns = ttk.LabelFrame(container, text="Resultados")
             containerAns.grid(column=1, row=1, sticky="W", padx=pad, pady=pad)
-            allAns = ttk.LabelFrame(containerAns, text="Todos os resultados")
-            allAns.grid(column=0, row=0, padx=pad, pady=pad)
-            averageAns = ttk.LabelFrame(containerAns, text="Média dos resultados")
-            averageAns.grid(column=0, row=1, padx=pad, pady=pad)
 
+            # Results -> All answers being the last the average
             for ans in cls2.AnsVar:
                 idx = list(cls2.AnsVar).index(ans)
-                ttk.Label(allAns, text=cls2.AnsExpDic[ans]+":").grid(column=0, row=idx, sticky="W", padx=pad, pady=pad)
+                ttk.Label(containerAns, text=cls2.AnsExpDic[ans]+":").grid(column=0, row=idx, sticky="W", padx=pad, pady=pad)
       
         tabControl2.grid(padx=pad, pady=pad) # show notebook 2
     tabControl1.grid(padx=pad, pady=pad) # show notebook 1
