@@ -37,7 +37,7 @@ verPDF = ""
 verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 
 #==========
-# variables
+# variables, lists, dictionairies, constants
 #==========
 maxTries = 20
 pad = 4
