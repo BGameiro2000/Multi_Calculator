@@ -141,7 +141,7 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
     #==========
     # Data lists
     PhysicalQuantitiesVar = ["m", "d", "l", "Δt"]
-    PhysicalQuantitiesExp = ["Massa do carrinho", "Distância do carrinho à célula fotovoltaica", "Largura da faixa do carrinho", "Intervao de tempo que a célula foi interrompida"]
+    PhysicalQuantitiesExp = ["Massa do carrinho", "Distância do carrinho à célula fotovoltaica", "Largura da faixa do carrinho", "Intervalo de tempo que a célula foi interrompida"]
     PhysicalQuantitiesUnits = [massDic, disDic, disDic, timeDic]
     PhysicalQuantitiesValues = []
     # Data dictionairies
