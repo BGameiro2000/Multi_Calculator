@@ -82,7 +82,7 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             containerVal = ttk.LabelFrame(container, text="Dados")
             containerVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
             noActivities = ttk.LabelFrame(containerVal, text="Número de repetições")
-            noActivities.grid(column=0, row=0, sticky="W", padx=5, pady=5)
+            noActivities.grid(column=0, row=0, padx=5, pady=5)
             currentVal = ttk.LabelFrame(containerVal, text="Repetição")
             currentVal.grid(column=0, row=1, sticky="W", padx=5, pady=5)
 
