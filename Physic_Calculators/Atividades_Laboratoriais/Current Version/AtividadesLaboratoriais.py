@@ -45,13 +45,18 @@ pad = 4
 #==========
 # functions
 #==========
-def updateCurrent(event=None):
+def updateCurrent(activity, event=None):#rever
+    triesList = []
     triesDict = {}
     currentTrySP.config(to=noTries.get())
-    if noTries.get() == 1: currentTry.set(1) # Needed to set spinbox value = 1
-    for no in range(1, noTries.get()+1 ):
+    if noTries.get() == 1: currentTryNo.set(1) # Needed to set spinbox value = 1
+    for no in range(1, noTries.get()+1):
         name = "atv"+str(no)
-        triesDict[no] = name # rever
+        triesList.append(name)
+        triesDict[name] = activity()
+
+def updateTryChange(event=None):#nada feito
+    pass
 
 #==========
 # structure
@@ -107,13 +112,13 @@ for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 
             # Data&results level -> Number of data inserts
             ttk.Label(noActivities, text="Quantas repetições da atividade laboratorial vai realizar?").grid(column=0, row=0, sticky="W", padx=pad, pady=pad)
             noTries = tk.IntVar()
-            noTriesSP = tk.Spinbox(noActivities, from_=1, to=maxTries, textvariable=noTries, state="readonly", width=3, command=updateCurrent)
+            noTriesSP = tk.Spinbox(noActivities, from_=1, to=maxTries, textvariable=noTries, state="readonly", width=3, command=updateCurrent)#(cls2))
             noTriesSP.grid(column=1, row=0, padx=pad, pady=pad)
             ttk.Label(noActivities, text="Qual a repetição que quer inserir/alterar?").grid(column=0, row=1, sticky="W", padx=pad, pady=pad)
-            currentTry = tk.IntVar()
-            currentTrySP = tk.Spinbox(noActivities, from_=1, to=1, textvariable=currentTry, state="readonly", width=3)
+            currentTryNo = tk.IntVar()
+            currentTrySP = tk.Spinbox(noActivities, from_=1, to=1, textvariable=currentTryNo, state="readonly", width=3, command=updateTryChange)
             currentTrySP.grid(column=1, row=1, padx=pad, pady=pad)
-            currentTry.set(1)     # Needed to set spinbox value = 1
+            currentTryNo.set(1)     # Needed to set spinbox value = 1
 
             # Data&results level -> Current data insert
             # need to associate the results with a try (object)
