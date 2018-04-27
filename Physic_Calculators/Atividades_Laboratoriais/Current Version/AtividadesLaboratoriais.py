@@ -46,10 +46,11 @@ pad = 4
 # functions
 #==========
 def updateCurrent(event=None):
+    triesDict = {}
     currentTrySP.config(to=noTries.get())
     if noTries.get() == 1: currentTry.set(1) # Needed to set spinbox value = 1
-    for no in range( noTries.get() ):
-        name = "atv"+no
+    for no in range(1, noTries.get()+1 ):
+        name = "atv"+str(no)
         triesDict[no] = name # rever
 
 #==========
@@ -59,6 +60,12 @@ def updateCurrent(event=None):
 mainContainer = ttk.LabelFrame(mainWin, text="Escolha a disciplina:") # main container
 mainContainer.grid(padx=pad, pady=pad)
 tabControl0 = ttk.Notebook(mainContainer) # main notebook inside container
+
+"""
+testBut = ttk.Button(mainWin, text="Test", command=test function here)
+testBut.grid()
+"""
+
 
 # discipline level
 for cls0 in LaboratoryActivities.__subclasses__(): # create tabs for notebook 0 and a container inside each tab
