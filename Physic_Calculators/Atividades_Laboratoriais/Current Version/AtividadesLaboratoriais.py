@@ -21,12 +21,20 @@ from Data.AtividadesClasses import *
 import Data.AtividadesClasses
 
 #==========
+# variables, lists, dictionairies, constants
+#==========
+title =  "Atividades Laboratoriais do Secundário"
+maxTries = 20
+pad = 4
+triesObjDict = {}
+
+#==========
 # define window
 #==========
 # creating instance of main window
 mainWin = tk.Tk()
-# Title of the window    
-mainWin.title("Atividades Laboratoriais do Secundário")
+# Title of the window
+mainWin.title(title)
 # size
 #mainWin.geometry('550x450')
 
@@ -38,15 +46,16 @@ verPDF = ""
 verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 
 #==========
-# variables, lists, dictionairies, constants
+# toplevel and other windows
 #==========
-maxTries = 20
-pad = 4
-triesObjDict = {}
+#insert here different windows
 
 #==========
 # functions
 #==========
+def _exitWin():
+    close = msg.askyesnocancel("AVISO: Está a fechar a janela", "Tem a certeza que deseja fechar %s?\nA informação será perdida." % (title))
+
 def updateCurrent(event=None):
     currentTrySP.config(to=noTries.get())
     if noTries.get() == 1: currentTryNo.set(1) # Needed to set spinbox value = 1
@@ -165,7 +174,7 @@ file_menu.add_command(label="Novo")
 file_menu.add_separator()
 file_menu.add_command(label="Versão")
 file_menu.add_separator()
-file_menu.add_command(label="Sair")
+file_menu.add_command(label="Sair", command=_exitWin)
 menuBar.add_cascade(label="Ficheiro", menu=file_menu)
 edit_menu = Menu(menuBar, tearoff=0)
 edit_menu.add_command(label="Procurar atualização")
