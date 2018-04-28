@@ -133,7 +133,7 @@ class F10AL1_1(PhysicsTenth): #child of PhysicsTenth subclass, defines the code 
     # Attributes (code --> 1.1)
     #            (name & pdfInfo)
     #==========
-    def __init__(self, name, pdfInfo):
+    def __init__(self):
         PhysicsTenth.__init__(self, self.specialAttribute, self.name, self.pdfInfo)
     
     #==========
