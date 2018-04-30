@@ -55,6 +55,7 @@ verGeral = "0.G%s.A%s.P%s" % (verGUI, verAtvLab, verPDF)
 #==========
 def _exitWin():
     close = msg.askyesnocancel("AVISO: Está a fechar a janela", "Tem a certeza que deseja fechar %s?\nA informação será perdida." % (title))
+    return close
 
 def updateCurrent(event=None):
     currentTrySP.config(to=noTries.get())
@@ -74,10 +75,16 @@ mainContainer = ttk.LabelFrame(mainWin, text="Escolha a disciplina:") # main con
 mainContainer.grid(padx=pad, pady=pad)
 tabControl0 = ttk.Notebook(mainContainer) # main notebook inside container
 
-"""
-testBut = ttk.Button(mainWin, text="Test", command=updateTryChange)
+#==========
+# tests
+#==========
+def vars():
+    print("global", globals())
+    print("local", locals())
+
+testBut = ttk.Button(mainWin, text="Test", command=vars)
 testBut.grid()
-"""
+
 
 
 # discipline level
